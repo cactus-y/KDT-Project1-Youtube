@@ -1,0 +1,46 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <div class="container-fluid d-flex justify-content-between align-items-center">
+        <!-- sidebar toggler, logo -->
+        <div class="leftside d-flex align-items-center">
+            <button class="btn me-3" id="sidebarToggle">
+                <i class="bi bi-list"></i>
+            </button>
+            <a class="navbar-brand" href="./index.html"><img src="../images/youtube_logo.png" alt="logo"
+                    class="img-fluid" style="max-height: 30px;"></a>
+        </div>
+
+        <!-- search bar -->
+        <div class="center flex-grow-1 d-flex justify-content-center mx-3">
+            <form class="d-flex align-items-center position-relative w-100" role="search" style="max-width: 600px;"
+                onsubmit="">
+                <div class="input-group d-none d-md-flex">
+                    <input class="form-control border-secondary rounded-start-pill border-end-0" type="text"
+                        placeholder="검색" name="query" id="searchInput">
+                    <button class="btn btn-light border-secondary rounded-end-pill" type="submit">
+                        <i class="bi bi-search"></i>
+                    </button>
+                </div>
+
+                <!-- mic button -->
+                <button class="btn btn-light rounded-circle ms-2 d-none d-md-block" type="submit">
+                    <i class="bi bi-mic"></i>
+                </button>
+
+                <!-- search button for mobile width -->
+                <button class="btn d-md-none" type="submit">
+                    <i class="bi bi-search"></i>
+                </button>
+            </form>
+        </div>
+
+        <!-- new video, notification, profile -->
+        <div class="rightside d-flex align-items-center">
+            <button class="btn btn-light rounded-pill" type="button"><i class="bi bi-plus"></i> New</button>
+            <button class="btn" type="button">
+                <i class="bi bi-bell"></i>
+            </button>
+            <a href="./profile.html"><img src="../images/youtube_logo.png" alt="profile"
+                    style="border-radius: 50%; width: 30px; height: 30px; overflow: hidden; object-position: center;"></a>
+        </div>
+    </div>
+</nav>
