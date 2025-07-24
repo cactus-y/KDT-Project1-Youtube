@@ -14,6 +14,18 @@
     span {
         font-size: 14px;
     }
+    textarea {
+        border: none;
+        border-bottom: 1px solid #909090;
+        resize: none;
+        overflow: hidden;
+        font-size: 14px;
+        box-shadow: none;
+    }
+    textarea:focus {
+        border-bottom: 2px solid black;
+        outline: none;
+    }
 </style>
 <body>
     <!-- navbar -->
@@ -69,7 +81,7 @@
                     </div>
 
                     <!-- video description section -->
-                    <div class="video-description-box my-3" style="background-color: #f2f2f2; border-radius: 12px;">
+                    <div class="video-description-box my-2" style="background-color: #f2f2f2; border-radius: 12px;">
                         <div id="video-description-text" class="collapsed cursor-pointer mb-2 px-3 py-2">
                             <span class="fw-bold">조회수 2464만회 4년 전</span><br>
                             <span>침착맨 삼국지</span><br>
@@ -77,6 +89,44 @@
                             <span>침착맨 몰아보기 합본판...더보기</span>
                         </div>
                         <div id="toggle-collapse" class="text-black cursor-pointer" style="display: none;">간략히</div>
+                    </div>
+                </div>
+
+                <!-- video comment section -->
+                <div class="video-comment-container mt-3">
+                    <!-- comment counting -->
+                    <div class="video-comment-count py-2 d-flex align-items-center">
+                        <h5 class="fw-bold pt-2">댓글 18,517개</h5>
+                        <button class="btn" type="button"><i class="bi bi-filter-left"></i>정렬 기준</button>
+                    </div>
+                    <!-- comment input -->
+                    <!-- *** This part should be modified when js file is implemented! *** -->
+                    <div id="video-comment-input-container" class="">
+                        <!-- profile section -->
+                        <div id="video-comment-profile" class="d-flex align-items-center">
+                            <img src="../images/sample_img.webp" alt="Comment Profile Image" class="rounded-circle me-2" style="width: 30px; height: 30px;">
+                            <div class="mx-1 py-0">
+                                <span class="d-block">사용자</span>
+                                <span class="d-block">@cactus-y</span>
+                            </div>
+                            <button id="btn-profile-edit" class="btn" type="button"><i class="bi bi-pencil"></i></button>
+                        </div>
+
+                        <!-- comment textarea section -->
+                        <form action="#">
+                            <div id="comment-form-group" class="">
+                                <textarea class="w-100 mt-3" rows="1" placeholder="댓글 추가..."></textarea>
+                            </div>
+                            <div id="comment-btn-group" class="d-flex justify-content-end">
+                                <button class="btn btn-light rounded-pill me-1" type="reset"><span>취소</span></button>
+                                <button class="btn btn-primary rounded-pill ms-1" type="button" disabled><span>댓글</span></button>
+                            </div>
+                        </form>
+
+                        <!-- comments list -->
+                        <div id="video-comment-list-container" class="">
+                            
+                        </div>
                     </div>
                 </div>
             </main>
