@@ -9,7 +9,7 @@
 </head>
 <style>
     body {
-        font-family: system-ui;
+        font-family: 'Roboto', Arial, Helvetica, sans-serif;
     }
     span {
         font-size: 14px;
@@ -45,11 +45,11 @@
                             <a href="https://www.youtube.com/@ChimChakMan_Official">
                                 <img src="https://yt3.googleusercontent.com/Vaomx_a8Qs9bDHS09zsQBB8BG5rY3LWnvb0zcK4oqThz7oT4PCeZQYyMSsQLGh8pmAwlVAmYew=s160-c-k-c0x00ffffff-no-rj" alt="channel_profile" class="rounded-circle me-2" style="width: 40px; height: 40px;">
                             </a>
-                            <div class="ms-1">
-                                <a href="https://www.youtube.com/@ChimChakMan_Official" class="text-decoration-none text-black"><p class="mb-0" style="font-size: 16px;">침착맨</p></a>
-                                <p class="text-muted" style="font-size: 12px;">구독자 288만명</p>
+                            <div class="ms-1 py-0">
+                                <a href="https://www.youtube.com/@ChimChakMan_Official" class="text-decoration-none text-black"><span class="d-block" style="font-size: 16px;">침착맨</span></a>
+                                <span class="text-muted d-block" style="font-size: 12px;">구독자 288만명</span>
                             </div>
-                            <button class="btn btn-subscribe rounded-pill bg-black px-3 my-1 ms-4" type="button" style="height: 35px;">
+                            <button class="btn btn-subscribe rounded-pill bg-black px-3 my-1 ms-4" type="button">
                                 <span class="text-white">구독</span>
                             </button>
                         </div>
@@ -61,11 +61,22 @@
                                 <button class="btn btn-light rounded-end-pill" type="button"><i class="bi bi-hand-thumbs-down"></i></button>
                             </div>
                             <button class="btn btn-light rounded-pill" type="button"><i class="bi bi-box-arrow-up-right me-2"></i><span>공유</span></button>
-                            <button class="btn btn-light rounded-pill" type="button"><i class="bi bi-download me-2"></i><span>오프라인 저장</span></button>
-                            <button class="btn btn-light rounded-pill" type="button"><i class="bi bi-cash-coin me-2"></i><span>Thanks</span></button>
-                            <button class="btn btn-light rounded-pill" type="button"><i class="bi bi-bookmark me-2"></i><span>저장</span></button>
+                            <button class="btn btn-light rounded-pill d-none d-md-block" type="button"><i class="bi bi-download me-2"></i><span>오프라인 저장</span></button>
+                            <button class="btn btn-light rounded-pill d-none d-lg-block" type="button"><i class="bi bi-cash-coin me-2"></i><span>Thanks</span></button>
+                            <button class="btn btn-light rounded-pill d-none d-xl-block" type="button"><i class="bi bi-bookmark me-2"></i><span>저장</span></button>
                             <button class="btn btn-light rounded-pill" type="button"><i class="bi bi-three-dots me-2"></i></button>
                         </div> 
+                    </div>
+
+                    <!-- video description section -->
+                    <div class="video-description-box my-3" style="background-color: #f2f2f2; border-radius: 12px;">
+                        <div id="video-description-text" class="collapsed cursor-pointer mb-2 px-3 py-2">
+                            <span class="fw-bold">조회수 2464만회 4년 전</span><br>
+                            <span>침착맨 삼국지</span><br>
+                            <span>침착맨 삼국지 인물전</span><br>
+                            <span>침착맨 몰아보기 합본판...더보기</span>
+                        </div>
+                        <div id="toggle-collapse" class="text-black cursor-pointer" style="display: none;">간략히</div>
                     </div>
                 </div>
             </main>
