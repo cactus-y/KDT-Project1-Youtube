@@ -9,6 +9,10 @@
 </head>
 <!-- temporal css styling -->
 <style>
+    /* #sidebar {
+        position: fixed;
+    } */
+
     .sidebar-link {
         padding: 8px 12px;
         border-radius: 10px;
@@ -22,6 +26,10 @@
     .subscription-label {
         padding: 8px 12px;
     }
+
+    body {
+        padding-top: 60px;
+    }
 </style>
 
 <body>
@@ -31,7 +39,8 @@
         fetch('./navbar.html')
             .then(res => res.text())
             .then(html => {
-                document.getElementById('navbar').innerHTML = html
+                const navbar = document.getElementById('navbar')
+                navbar.insertAdjacentHTML('afterbegin', html)
             })
     </script>
 
