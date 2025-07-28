@@ -22,6 +22,14 @@
     text-overflow: ellipsis;
 }
 
+#sidebarToggle:hover {
+    background-color: #f2f2f2;
+}
+
+#navbar-notification-btn:hover {
+    background-color: #f2f2f2;
+}
+
 .slightly-bold {
     font-weight: 500;
 }
