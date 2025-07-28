@@ -22,12 +22,23 @@
     text-overflow: ellipsis;
 }
 
-#sidebarToggle:hover {
+#btn-search {
+    background-color: #f8f8f8;
+}
+#btn-search:hover {
+    background-color: #f0f0f0;
+}
+
+.btn.btn-gray {
     background-color: #f2f2f2;
 }
 
-#navbar-notification-btn:hover {
-    background-color: #f2f2f2;
+.btn.btn-gray:hover {
+    background-color: #e5e5e5;
+}
+
+.btn.btn-hover-gray:hover {
+    background-color: #e5e5e5;
 }
 
 .slightly-bold {
