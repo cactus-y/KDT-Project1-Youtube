@@ -27,8 +27,14 @@
         background-color: #f2f2f2;
     }
 
-    .subscription-label {
-        padding: 8px 12px;
+    .video-card {
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .video-card:hover {
+        transform: scale(1.05) translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        z-index: 10;
     }
 </style>
 
@@ -50,63 +56,65 @@
             <aside id="sidebar" class="col-2 col-md-2 col-lg-2 bg-white p-2">
                 <!-- main sidebar items -->
                 <a href="#" class="sidebar-link d-flex align-items-center w-100 text-decoration-none text-dark">
-                    <i class="bi bi-house-fill fs-5 me-3"></i> 홈
+                    <i class="bi bi-house-fill fs-5 me-3"></i> <span class="small-span">홈</span>
                 </a>
                 <a href="#" class="sidebar-link d-flex align-items-center w-100 text-decoration-none text-dark">
-                    <i class="bi bi-youtube fs-5 me-3"></i> Shorts
+                    <i class="bi bi-youtube fs-5 me-3"></i> <span class="small-span">Shorts</span>
                 </a>
                 <a href="#" class="sidebar-link d-flex align-items-center w-100 text-decoration-none text-dark">
-                    <i class="bi bi-youtube fs-5 me-3"></i> 구독
+                    <i class="bi bi-youtube fs-5 me-3"></i> <span class="small-span">구독</span>
                 </a>
                 <a href="#" class="sidebar-link d-flex align-items-center w-100 text-decoration-none text-dark">
-                    <i class="bi bi-vinyl fs-5 me-3"></i> YouTube Music
+                    <i class="bi bi-vinyl fs-5 me-3"></i> <span class="small-span">YouTube Music</span>
                 </a>
                 <!-- my page sidebar items -->
                 <hr class="my-2">
                 <a href="#" class="sidebar-link d-flex align-items-center w-100 text-decoration-none text-dark">
-                    내 페이지 <i class="bi bi-chevron-right" style="margin-left: 10px;"></i>
+                    <span class="slightly-bold">내 페이지</span>
+                    <i class="bi bi-chevron-right" style="margin-left: 10px;"></i>
                 </a>
                 <a href="#" class="sidebar-link d-flex align-items-center w-100 text-decoration-none text-dark">
-                    <i class="bi bi-clock-history fs-5 me-3"></i> 시청 기록
+                    <i class="bi bi-clock-history fs-5 me-3"></i> <span class="small-span">시청 기록</span>
                 </a>
                 <a href="#" class="sidebar-link d-flex align-items-center w-100 text-decoration-none text-dark">
-                    <i class="bi bi-camera-reels fs-5 me-3"></i> 재생목록
+                    <i class="bi bi-camera-reels fs-5 me-3"></i> <span class="small-span">재생 목록</span>
                 </a>
                 <a href="#" class="sidebar-link d-flex align-items-center w-100 text-decoration-none text-dark">
-                    <i class="bi bi-clock fs-5 me-3"></i> 나중에 볼 동영상
+                    <i class="bi bi-clock fs-5 me-3"></i> <span class="small-span">나중에 볼 동영상</span>
                 </a>
                 <a href="#" class="sidebar-link d-flex align-items-center w-100 text-decoration-none text-dark">
-                    <i class="bi bi-hand-thumbs-up fs-5 me-3"></i> 좋아요 표시한 동영상
+                    <i class="bi bi-hand-thumbs-up fs-5 me-3"></i> <span class="small-span">좋아요 표시한 동영상</span>
                 </a>
                 <a href="#" class="sidebar-link d-flex align-items-center w-100 text-decoration-none text-dark">
-                    <i class="bi bi-download fs-5 me-3"></i> 오프라인 저장 동영상
+                    <i class="bi bi-download fs-5 me-3"></i> <span class="small-span">오프라인 저장 동영상</span>
                 </a>
                 <!-- subscriptions sidebar items -->
                 <hr class="my-2">
-                <h5 class="subscription-label d-flex align-items-center w-100">구독</h3>
+                <span class=" d-flex align-items-center w-100 slightly-bold" style="padding: 8px 12px;">구독</span>
                     <a href="#" class="sidebar-link d-flex align-items-center w-100 text-decoration-none text-dark">
-                        <i class="bi bi-youtube fs-5 me-3"></i> Channel 1
+                        <i class="bi bi-youtube fs-5 me-3"></i> <span class="small-span">Channel 1</span>
                     </a>
                     <a href="#" class="sidebar-link d-flex align-items-center w-100 text-decoration-none text-dark">
-                        <i class="bi bi-youtube fs-5 me-3"></i> Channel 2
+                        <i class="bi bi-youtube fs-5 me-3"></i> <span class="small-span">Channel 2</span>
                     </a>
             </aside>
 
             <!-- main section -->
-            <main class="container-fluid col-10 col-md-10 col-lg-10" style="margin-left: 240px;">
+            <main class="col-10 col-md-10 col-lg-10" style="margin-left: 240px;">
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-3 g-3">
                     <div class="col">
                         <a href="https://youtu.be/hnanNlDbsE4?si=l4FNF0x9uEDHJzkq" class="text-decoration-none text-dark">
-                            <div class="card border-0">
+                            <div class="card border-0 video-card">
                                 <img src="https://img.youtube.com/vi/hnanNlDbsE4/maxresdefault.jpg" class="card-img-top rounded" alt="Thumbnail">
                                 <div class="card-body p-2 d-flex">
-                                    <a href="https://www.youtube.com/@ChimChakMan_Official">
-                                        <img src="https://yt3.googleusercontent.com/Vaomx_a8Qs9bDHS09zsQBB8BG5rY3LWnvb0zcK4oqThz7oT4PCeZQYyMSsQLGh8pmAwlVAmYew=s160-c-k-c0x00ffffff-no-rj" class="rounded-circle me-2" alt="Channel Thumbnail" style="width: 36px; height: 36px;">
-                                    </a>
+                                    <img src="https://yt3.googleusercontent.com/Vaomx_a8Qs9bDHS09zsQBB8BG5rY3LWnvb0zcK4oqThz7oT4PCeZQYyMSsQLGh8pmAwlVAmYew=s160-c-k-c0x00ffffff-no-rj" class="rounded-circle me-2" alt="Channel Thumbnail" style="width: 36px; height: 36px;">
                                     <div>
-                                        <span class="card-title mb-1 d-block fs-6 slightly-bold">비디오 제목 예시</span>
-                                        <span class="card-text text-muted mb-0">채널 이름</span>
-                                        <span class="card-text text-muted small d-block">조회수 100만회 · 3일 전</span>
+                                        <span class="card-title mb-0 d-block slightly-bold">비디오 제목 예시</span>
+                                        <span class="card-text text-muted mb-0 small-span">채널 이름</span>
+                                        <span class="card-text text-muted d-block small-span">조회수 100만회 · 3일 전</span>
+                                    </div>
+                                    <div class="position-relative ms-auto">
+                                        <button class="btn rounded-circle p-0 top-0 end-0" type="button"><i class="bi bi-three-dots-vertical"></i></button>
                                     </div>
                                 </div>
                             </div>
@@ -114,16 +122,17 @@
                     </div>
                     <div class="col">
                         <a href="https://youtu.be/hnanNlDbsE4?si=l4FNF0x9uEDHJzkq" class="text-decoration-none text-dark">
-                            <div class="card border-0">
+                            <div class="card border-0 video-card">
                                 <img src="https://img.youtube.com/vi/hnanNlDbsE4/maxresdefault.jpg" class="card-img-top rounded" alt="Thumbnail">
                                 <div class="card-body p-2 d-flex">
-                                    <a href="https://www.youtube.com/@ChimChakMan_Official">
-                                        <img src="https://yt3.googleusercontent.com/Vaomx_a8Qs9bDHS09zsQBB8BG5rY3LWnvb0zcK4oqThz7oT4PCeZQYyMSsQLGh8pmAwlVAmYew=s160-c-k-c0x00ffffff-no-rj" class="rounded-circle me-2" alt="Channel Thumbnail" style="width: 36px; height: 36px;">
-                                    </a>
+                                    <img src="https://yt3.googleusercontent.com/Vaomx_a8Qs9bDHS09zsQBB8BG5rY3LWnvb0zcK4oqThz7oT4PCeZQYyMSsQLGh8pmAwlVAmYew=s160-c-k-c0x00ffffff-no-rj" class="rounded-circle me-2" alt="Channel Thumbnail" style="width: 36px; height: 36px;">
                                     <div>
-                                        <span class="card-title mb-1 d-block fs-6 slightly-bold">비디오 제목 예시</span>
-                                        <span class="card-text text-muted mb-0">채널 이름</span>
-                                        <span class="card-text text-muted small d-block">조회수 100만회 · 3일 전</span>
+                                        <span class="card-title mb-0 d-block slightly-bold">비디오 제목 예시</span>
+                                        <span class="card-text text-muted mb-0 small-span">채널 이름</span>
+                                        <span class="card-text text-muted d-block small-span">조회수 100만회 · 3일 전</span>
+                                    </div>
+                                    <div class="position-relative ms-auto">
+                                        <button class="btn rounded-circle p-0 top-0 end-0" type="button"><i class="bi bi-three-dots-vertical"></i></button>
                                     </div>
                                 </div>
                             </div>
@@ -131,16 +140,17 @@
                     </div>
                     <div class="col">
                         <a href="https://youtu.be/hnanNlDbsE4?si=l4FNF0x9uEDHJzkq" class="text-decoration-none text-dark">
-                            <div class="card border-0">
+                            <div class="card border-0 video-card">
                                 <img src="https://img.youtube.com/vi/hnanNlDbsE4/maxresdefault.jpg" class="card-img-top rounded" alt="Thumbnail">
                                 <div class="card-body p-2 d-flex">
-                                    <a href="https://www.youtube.com/@ChimChakMan_Official">
-                                        <img src="https://yt3.googleusercontent.com/Vaomx_a8Qs9bDHS09zsQBB8BG5rY3LWnvb0zcK4oqThz7oT4PCeZQYyMSsQLGh8pmAwlVAmYew=s160-c-k-c0x00ffffff-no-rj" class="rounded-circle me-2" alt="Channel Thumbnail" style="width: 36px; height: 36px;">
-                                    </a>
+                                    <img src="https://yt3.googleusercontent.com/Vaomx_a8Qs9bDHS09zsQBB8BG5rY3LWnvb0zcK4oqThz7oT4PCeZQYyMSsQLGh8pmAwlVAmYew=s160-c-k-c0x00ffffff-no-rj" class="rounded-circle me-2" alt="Channel Thumbnail" style="width: 36px; height: 36px;">
                                     <div>
-                                        <span class="card-title mb-1 d-block fs-6 slightly-bold">비디오 제목 예시</span>
-                                        <span class="card-text text-muted mb-0">채널 이름</span>
-                                        <span class="card-text text-muted small d-block">조회수 100만회 · 3일 전</span>
+                                        <span class="card-title mb-0 d-block slightly-bold">비디오 제목 예시</span>
+                                        <span class="card-text text-muted mb-0 small-span">채널 이름</span>
+                                        <span class="card-text text-muted d-block small-span">조회수 100만회 · 3일 전</span>
+                                    </div>
+                                    <div class="position-relative ms-auto">
+                                        <button class="btn rounded-circle p-0 top-0 end-0" type="button"><i class="bi bi-three-dots-vertical"></i></button>
                                     </div>
                                 </div>
                             </div>
@@ -148,16 +158,17 @@
                     </div>
                     <div class="col">
                         <a href="https://youtu.be/hnanNlDbsE4?si=l4FNF0x9uEDHJzkq" class="text-decoration-none text-dark">
-                            <div class="card border-0">
+                            <div class="card border-0 video-card">
                                 <img src="https://img.youtube.com/vi/hnanNlDbsE4/maxresdefault.jpg" class="card-img-top rounded" alt="Thumbnail">
                                 <div class="card-body p-2 d-flex">
-                                    <a href="https://www.youtube.com/@ChimChakMan_Official">
-                                        <img src="https://yt3.googleusercontent.com/Vaomx_a8Qs9bDHS09zsQBB8BG5rY3LWnvb0zcK4oqThz7oT4PCeZQYyMSsQLGh8pmAwlVAmYew=s160-c-k-c0x00ffffff-no-rj" class="rounded-circle me-2" alt="Channel Thumbnail" style="width: 36px; height: 36px;">
-                                    </a>
+                                    <img src="https://yt3.googleusercontent.com/Vaomx_a8Qs9bDHS09zsQBB8BG5rY3LWnvb0zcK4oqThz7oT4PCeZQYyMSsQLGh8pmAwlVAmYew=s160-c-k-c0x00ffffff-no-rj" class="rounded-circle me-2" alt="Channel Thumbnail" style="width: 36px; height: 36px;">
                                     <div>
-                                        <span class="card-title mb-1 d-block fs-6 slightly-bold">비디오 제목 예시</span>
-                                        <span class="card-text text-muted mb-0">채널 이름</span>
-                                        <span class="card-text text-muted small d-block">조회수 100만회 · 3일 전</span>
+                                        <span class="card-title mb-0 d-block slightly-bold">비디오 제목 예시</span>
+                                        <span class="card-text text-muted mb-0 small-span">채널 이름</span>
+                                        <span class="card-text text-muted d-block small-span">조회수 100만회 · 3일 전</span>
+                                    </div>
+                                    <div class="position-relative ms-auto">
+                                        <button class="btn rounded-circle p-0 top-0 end-0" type="button"><i class="bi bi-three-dots-vertical"></i></button>
                                     </div>
                                 </div>
                             </div>
@@ -165,16 +176,17 @@
                     </div>
                     <div class="col">
                         <a href="https://youtu.be/hnanNlDbsE4?si=l4FNF0x9uEDHJzkq" class="text-decoration-none text-dark">
-                            <div class="card border-0">
+                            <div class="card border-0 video-card">
                                 <img src="https://img.youtube.com/vi/hnanNlDbsE4/maxresdefault.jpg" class="card-img-top rounded" alt="Thumbnail">
                                 <div class="card-body p-2 d-flex">
-                                    <a href="https://www.youtube.com/@ChimChakMan_Official">
-                                        <img src="https://yt3.googleusercontent.com/Vaomx_a8Qs9bDHS09zsQBB8BG5rY3LWnvb0zcK4oqThz7oT4PCeZQYyMSsQLGh8pmAwlVAmYew=s160-c-k-c0x00ffffff-no-rj" class="rounded-circle me-2" alt="Channel Thumbnail" style="width: 36px; height: 36px;">
-                                    </a>
+                                    <img src="https://yt3.googleusercontent.com/Vaomx_a8Qs9bDHS09zsQBB8BG5rY3LWnvb0zcK4oqThz7oT4PCeZQYyMSsQLGh8pmAwlVAmYew=s160-c-k-c0x00ffffff-no-rj" class="rounded-circle me-2" alt="Channel Thumbnail" style="width: 36px; height: 36px;">
                                     <div>
-                                        <span class="card-title mb-1 d-block fs-6 slightly-bold">비디오 제목 예시</span>
-                                        <span class="card-text text-muted mb-0">채널 이름</span>
-                                        <span class="card-text text-muted small d-block">조회수 100만회 · 3일 전</span>
+                                        <span class="card-title mb-0 d-block slightly-bold">비디오 제목 예시</span>
+                                        <span class="card-text text-muted mb-0 small-span">채널 이름</span>
+                                        <span class="card-text text-muted d-block small-span">조회수 100만회 · 3일 전</span>
+                                    </div>
+                                    <div class="position-relative ms-auto">
+                                        <button class="btn rounded-circle p-0 top-0 end-0" type="button"><i class="bi bi-three-dots-vertical"></i></button>
                                     </div>
                                 </div>
                             </div>
@@ -182,16 +194,17 @@
                     </div>
                     <div class="col">
                         <a href="https://youtu.be/hnanNlDbsE4?si=l4FNF0x9uEDHJzkq" class="text-decoration-none text-dark">
-                            <div class="card border-0">
+                            <div class="card border-0 video-card">
                                 <img src="https://img.youtube.com/vi/hnanNlDbsE4/maxresdefault.jpg" class="card-img-top rounded" alt="Thumbnail">
                                 <div class="card-body p-2 d-flex">
-                                    <a href="https://www.youtube.com/@ChimChakMan_Official">
-                                        <img src="https://yt3.googleusercontent.com/Vaomx_a8Qs9bDHS09zsQBB8BG5rY3LWnvb0zcK4oqThz7oT4PCeZQYyMSsQLGh8pmAwlVAmYew=s160-c-k-c0x00ffffff-no-rj" class="rounded-circle me-2" alt="Channel Thumbnail" style="width: 36px; height: 36px;">
-                                    </a>
+                                    <img src="https://yt3.googleusercontent.com/Vaomx_a8Qs9bDHS09zsQBB8BG5rY3LWnvb0zcK4oqThz7oT4PCeZQYyMSsQLGh8pmAwlVAmYew=s160-c-k-c0x00ffffff-no-rj" class="rounded-circle me-2" alt="Channel Thumbnail" style="width: 36px; height: 36px;">
                                     <div>
-                                        <span class="card-title mb-1 d-block fs-6 slightly-bold">비디오 제목 예시</span>
-                                        <span class="card-text text-muted mb-0">채널 이름</span>
-                                        <span class="card-text text-muted small d-block">조회수 100만회 · 3일 전</span>
+                                        <span class="card-title mb-0 d-block slightly-bold">비디오 제목 예시</span>
+                                        <span class="card-text text-muted mb-0 small-span">채널 이름</span>
+                                        <span class="card-text text-muted d-block small-span">조회수 100만회 · 3일 전</span>
+                                    </div>
+                                    <div class="position-relative ms-auto">
+                                        <button class="btn rounded-circle p-0 top-0 end-0" type="button"><i class="bi bi-three-dots-vertical"></i></button>
                                     </div>
                                 </div>
                             </div>
@@ -199,16 +212,17 @@
                     </div>
                     <div class="col">
                         <a href="https://youtu.be/hnanNlDbsE4?si=l4FNF0x9uEDHJzkq" class="text-decoration-none text-dark">
-                            <div class="card border-0">
+                            <div class="card border-0 video-card">
                                 <img src="https://img.youtube.com/vi/hnanNlDbsE4/maxresdefault.jpg" class="card-img-top rounded" alt="Thumbnail">
                                 <div class="card-body p-2 d-flex">
-                                    <a href="https://www.youtube.com/@ChimChakMan_Official">
-                                        <img src="https://yt3.googleusercontent.com/Vaomx_a8Qs9bDHS09zsQBB8BG5rY3LWnvb0zcK4oqThz7oT4PCeZQYyMSsQLGh8pmAwlVAmYew=s160-c-k-c0x00ffffff-no-rj" class="rounded-circle me-2" alt="Channel Thumbnail" style="width: 36px; height: 36px;">
-                                    </a>
+                                    <img src="https://yt3.googleusercontent.com/Vaomx_a8Qs9bDHS09zsQBB8BG5rY3LWnvb0zcK4oqThz7oT4PCeZQYyMSsQLGh8pmAwlVAmYew=s160-c-k-c0x00ffffff-no-rj" class="rounded-circle me-2" alt="Channel Thumbnail" style="width: 36px; height: 36px;">
                                     <div>
-                                        <span class="card-title mb-1 d-block fs-6 slightly-bold">비디오 제목 예시</span>
-                                        <span class="card-text text-muted mb-0">채널 이름</span>
-                                        <span class="card-text text-muted small d-block">조회수 100만회 · 3일 전</span>
+                                        <span class="card-title mb-0 d-block slightly-bold">비디오 제목 예시</span>
+                                        <span class="card-text text-muted mb-0 small-span">채널 이름</span>
+                                        <span class="card-text text-muted d-block small-span">조회수 100만회 · 3일 전</span>
+                                    </div>
+                                    <div class="position-relative ms-auto">
+                                        <button class="btn rounded-circle p-0 top-0 end-0" type="button"><i class="bi bi-three-dots-vertical"></i></button>
                                     </div>
                                 </div>
                             </div>
@@ -216,16 +230,17 @@
                     </div>
                     <div class="col">
                         <a href="https://youtu.be/hnanNlDbsE4?si=l4FNF0x9uEDHJzkq" class="text-decoration-none text-dark">
-                            <div class="card border-0">
+                            <div class="card border-0 video-card">
                                 <img src="https://img.youtube.com/vi/hnanNlDbsE4/maxresdefault.jpg" class="card-img-top rounded" alt="Thumbnail">
                                 <div class="card-body p-2 d-flex">
-                                    <a href="https://www.youtube.com/@ChimChakMan_Official">
-                                        <img src="https://yt3.googleusercontent.com/Vaomx_a8Qs9bDHS09zsQBB8BG5rY3LWnvb0zcK4oqThz7oT4PCeZQYyMSsQLGh8pmAwlVAmYew=s160-c-k-c0x00ffffff-no-rj" class="rounded-circle me-2" alt="Channel Thumbnail" style="width: 36px; height: 36px;">
-                                    </a>
+                                    <img src="https://yt3.googleusercontent.com/Vaomx_a8Qs9bDHS09zsQBB8BG5rY3LWnvb0zcK4oqThz7oT4PCeZQYyMSsQLGh8pmAwlVAmYew=s160-c-k-c0x00ffffff-no-rj" class="rounded-circle me-2" alt="Channel Thumbnail" style="width: 36px; height: 36px;">
                                     <div>
-                                        <span class="card-title mb-1 d-block fs-6 slightly-bold">비디오 제목 예시</span>
-                                        <span class="card-text text-muted mb-0">채널 이름</span>
-                                        <span class="card-text text-muted small d-block">조회수 100만회 · 3일 전</span>
+                                        <span class="card-title mb-0 d-block slightly-bold">비디오 제목 예시</span>
+                                        <span class="card-text text-muted mb-0 small-span">채널 이름</span>
+                                        <span class="card-text text-muted d-block small-span">조회수 100만회 · 3일 전</span>
+                                    </div>
+                                    <div class="position-relative ms-auto">
+                                        <button class="btn rounded-circle p-0 top-0 end-0" type="button"><i class="bi bi-three-dots-vertical"></i></button>
                                     </div>
                                 </div>
                             </div>
@@ -233,169 +248,17 @@
                     </div>
                     <div class="col">
                         <a href="https://youtu.be/hnanNlDbsE4?si=l4FNF0x9uEDHJzkq" class="text-decoration-none text-dark">
-                            <div class="card border-0">
+                            <div class="card border-0 video-card">
                                 <img src="https://img.youtube.com/vi/hnanNlDbsE4/maxresdefault.jpg" class="card-img-top rounded" alt="Thumbnail">
                                 <div class="card-body p-2 d-flex">
-                                    <a href="https://www.youtube.com/@ChimChakMan_Official">
-                                        <img src="https://yt3.googleusercontent.com/Vaomx_a8Qs9bDHS09zsQBB8BG5rY3LWnvb0zcK4oqThz7oT4PCeZQYyMSsQLGh8pmAwlVAmYew=s160-c-k-c0x00ffffff-no-rj" class="rounded-circle me-2" alt="Channel Thumbnail" style="width: 36px; height: 36px;">
-                                    </a>
+                                    <img src="https://yt3.googleusercontent.com/Vaomx_a8Qs9bDHS09zsQBB8BG5rY3LWnvb0zcK4oqThz7oT4PCeZQYyMSsQLGh8pmAwlVAmYew=s160-c-k-c0x00ffffff-no-rj" class="rounded-circle me-2" alt="Channel Thumbnail" style="width: 36px; height: 36px;">
                                     <div>
-                                        <span class="card-title mb-1 d-block fs-6 slightly-bold">비디오 제목 예시</span>
-                                        <span class="card-text text-muted mb-0">채널 이름</span>
-                                        <span class="card-text text-muted small d-block">조회수 100만회 · 3일 전</span>
+                                        <span class="card-title mb-0 d-block slightly-bold">비디오 제목 예시</span>
+                                        <span class="card-text text-muted mb-0 small-span">채널 이름</span>
+                                        <span class="card-text text-muted d-block small-span">조회수 100만회 · 3일 전</span>
                                     </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col">
-                        <a href="https://youtu.be/hnanNlDbsE4?si=l4FNF0x9uEDHJzkq" class="text-decoration-none text-dark">
-                            <div class="card border-0">
-                                <img src="https://img.youtube.com/vi/hnanNlDbsE4/maxresdefault.jpg" class="card-img-top rounded" alt="Thumbnail">
-                                <div class="card-body p-2 d-flex">
-                                    <a href="https://www.youtube.com/@ChimChakMan_Official">
-                                        <img src="https://yt3.googleusercontent.com/Vaomx_a8Qs9bDHS09zsQBB8BG5rY3LWnvb0zcK4oqThz7oT4PCeZQYyMSsQLGh8pmAwlVAmYew=s160-c-k-c0x00ffffff-no-rj" class="rounded-circle me-2" alt="Channel Thumbnail" style="width: 36px; height: 36px;">
-                                    </a>
-                                    <div>
-                                        <span class="card-title mb-1 d-block fs-6 slightly-bold">비디오 제목 예시</span>
-                                        <span class="card-text text-muted mb-0">채널 이름</span>
-                                        <span class="card-text text-muted small d-block">조회수 100만회 · 3일 전</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col">
-                        <a href="https://youtu.be/hnanNlDbsE4?si=l4FNF0x9uEDHJzkq" class="text-decoration-none text-dark">
-                            <div class="card border-0">
-                                <img src="https://img.youtube.com/vi/hnanNlDbsE4/maxresdefault.jpg" class="card-img-top rounded" alt="Thumbnail">
-                                <div class="card-body p-2 d-flex">
-                                    <a href="https://www.youtube.com/@ChimChakMan_Official">
-                                        <img src="https://yt3.googleusercontent.com/Vaomx_a8Qs9bDHS09zsQBB8BG5rY3LWnvb0zcK4oqThz7oT4PCeZQYyMSsQLGh8pmAwlVAmYew=s160-c-k-c0x00ffffff-no-rj" class="rounded-circle me-2" alt="Channel Thumbnail" style="width: 36px; height: 36px;">
-                                    </a>
-                                    <div>
-                                        <span class="card-title mb-1 d-block fs-6 slightly-bold">비디오 제목 예시</span>
-                                        <span class="card-text text-muted mb-0">채널 이름</span>
-                                        <span class="card-text text-muted small d-block">조회수 100만회 · 3일 전</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col">
-                        <a href="https://youtu.be/hnanNlDbsE4?si=l4FNF0x9uEDHJzkq" class="text-decoration-none text-dark">
-                            <div class="card border-0">
-                                <img src="https://img.youtube.com/vi/hnanNlDbsE4/maxresdefault.jpg" class="card-img-top rounded" alt="Thumbnail">
-                                <div class="card-body p-2 d-flex">
-                                    <a href="https://www.youtube.com/@ChimChakMan_Official">
-                                        <img src="https://yt3.googleusercontent.com/Vaomx_a8Qs9bDHS09zsQBB8BG5rY3LWnvb0zcK4oqThz7oT4PCeZQYyMSsQLGh8pmAwlVAmYew=s160-c-k-c0x00ffffff-no-rj" class="rounded-circle me-2" alt="Channel Thumbnail" style="width: 36px; height: 36px;">
-                                    </a>
-                                    <div>
-                                        <span class="card-title mb-1 d-block fs-6 slightly-bold">비디오 제목 예시</span>
-                                        <span class="card-text text-muted mb-0">채널 이름</span>
-                                        <span class="card-text text-muted small d-block">조회수 100만회 · 3일 전</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col">
-                        <a href="https://youtu.be/hnanNlDbsE4?si=l4FNF0x9uEDHJzkq" class="text-decoration-none text-dark">
-                            <div class="card border-0">
-                                <img src="https://img.youtube.com/vi/hnanNlDbsE4/maxresdefault.jpg" class="card-img-top rounded" alt="Thumbnail">
-                                <div class="card-body p-2 d-flex">
-                                    <a href="https://www.youtube.com/@ChimChakMan_Official">
-                                        <img src="https://yt3.googleusercontent.com/Vaomx_a8Qs9bDHS09zsQBB8BG5rY3LWnvb0zcK4oqThz7oT4PCeZQYyMSsQLGh8pmAwlVAmYew=s160-c-k-c0x00ffffff-no-rj" class="rounded-circle me-2" alt="Channel Thumbnail" style="width: 36px; height: 36px;">
-                                    </a>
-                                    <div>
-                                        <span class="card-title mb-1 d-block fs-6 slightly-bold">비디오 제목 예시</span>
-                                        <span class="card-text text-muted mb-0">채널 이름</span>
-                                        <span class="card-text text-muted small d-block">조회수 100만회 · 3일 전</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col">
-                        <a href="https://youtu.be/hnanNlDbsE4?si=l4FNF0x9uEDHJzkq" class="text-decoration-none text-dark">
-                            <div class="card border-0">
-                                <img src="https://img.youtube.com/vi/hnanNlDbsE4/maxresdefault.jpg" class="card-img-top rounded" alt="Thumbnail">
-                                <div class="card-body p-2 d-flex">
-                                    <a href="https://www.youtube.com/@ChimChakMan_Official">
-                                        <img src="https://yt3.googleusercontent.com/Vaomx_a8Qs9bDHS09zsQBB8BG5rY3LWnvb0zcK4oqThz7oT4PCeZQYyMSsQLGh8pmAwlVAmYew=s160-c-k-c0x00ffffff-no-rj" class="rounded-circle me-2" alt="Channel Thumbnail" style="width: 36px; height: 36px;">
-                                    </a>
-                                    <div>
-                                        <span class="card-title mb-1 d-block fs-6 slightly-bold">비디오 제목 예시</span>
-                                        <span class="card-text text-muted mb-0">채널 이름</span>
-                                        <span class="card-text text-muted small d-block">조회수 100만회 · 3일 전</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col">
-                        <a href="https://youtu.be/hnanNlDbsE4?si=l4FNF0x9uEDHJzkq" class="text-decoration-none text-dark">
-                            <div class="card border-0">
-                                <img src="https://img.youtube.com/vi/hnanNlDbsE4/maxresdefault.jpg" class="card-img-top rounded" alt="Thumbnail">
-                                <div class="card-body p-2 d-flex">
-                                    <a href="https://www.youtube.com/@ChimChakMan_Official">
-                                        <img src="https://yt3.googleusercontent.com/Vaomx_a8Qs9bDHS09zsQBB8BG5rY3LWnvb0zcK4oqThz7oT4PCeZQYyMSsQLGh8pmAwlVAmYew=s160-c-k-c0x00ffffff-no-rj" class="rounded-circle me-2" alt="Channel Thumbnail" style="width: 36px; height: 36px;">
-                                    </a>
-                                    <div>
-                                        <span class="card-title mb-1 d-block fs-6 slightly-bold">비디오 제목 예시</span>
-                                        <span class="card-text text-muted mb-0">채널 이름</span>
-                                        <span class="card-text text-muted small d-block">조회수 100만회 · 3일 전</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col">
-                        <a href="https://youtu.be/hnanNlDbsE4?si=l4FNF0x9uEDHJzkq" class="text-decoration-none text-dark">
-                            <div class="card border-0">
-                                <img src="https://img.youtube.com/vi/hnanNlDbsE4/maxresdefault.jpg" class="card-img-top rounded" alt="Thumbnail">
-                                <div class="card-body p-2 d-flex">
-                                    <a href="https://www.youtube.com/@ChimChakMan_Official">
-                                        <img src="https://yt3.googleusercontent.com/Vaomx_a8Qs9bDHS09zsQBB8BG5rY3LWnvb0zcK4oqThz7oT4PCeZQYyMSsQLGh8pmAwlVAmYew=s160-c-k-c0x00ffffff-no-rj" class="rounded-circle me-2" alt="Channel Thumbnail" style="width: 36px; height: 36px;">
-                                    </a>
-                                    <div>
-                                        <span class="card-title mb-1 d-block fs-6 slightly-bold">비디오 제목 예시</span>
-                                        <span class="card-text text-muted mb-0">채널 이름</span>
-                                        <span class="card-text text-muted small d-block">조회수 100만회 · 3일 전</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col">
-                        <a href="https://youtu.be/hnanNlDbsE4?si=l4FNF0x9uEDHJzkq" class="text-decoration-none text-dark">
-                            <div class="card border-0">
-                                <img src="https://img.youtube.com/vi/hnanNlDbsE4/maxresdefault.jpg" class="card-img-top rounded" alt="Thumbnail">
-                                <div class="card-body p-2 d-flex">
-                                    <a href="https://www.youtube.com/@ChimChakMan_Official">
-                                        <img src="https://yt3.googleusercontent.com/Vaomx_a8Qs9bDHS09zsQBB8BG5rY3LWnvb0zcK4oqThz7oT4PCeZQYyMSsQLGh8pmAwlVAmYew=s160-c-k-c0x00ffffff-no-rj" class="rounded-circle me-2" alt="Channel Thumbnail" style="width: 36px; height: 36px;">
-                                    </a>
-                                    <div>
-                                        <span class="card-title mb-1 d-block fs-6 slightly-bold">비디오 제목 예시</span>
-                                        <span class="card-text text-muted mb-0">채널 이름</span>
-                                        <span class="card-text text-muted small d-block">조회수 100만회 · 3일 전</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col">
-                        <a href="https://youtu.be/hnanNlDbsE4?si=l4FNF0x9uEDHJzkq" class="text-decoration-none text-dark">
-                            <div class="card border-0">
-                                <img src="https://img.youtube.com/vi/hnanNlDbsE4/maxresdefault.jpg" class="card-img-top rounded" alt="Thumbnail">
-                                <div class="card-body p-2 d-flex">
-                                    <a href="https://www.youtube.com/@ChimChakMan_Official">
-                                        <img src="https://yt3.googleusercontent.com/Vaomx_a8Qs9bDHS09zsQBB8BG5rY3LWnvb0zcK4oqThz7oT4PCeZQYyMSsQLGh8pmAwlVAmYew=s160-c-k-c0x00ffffff-no-rj" class="rounded-circle me-2" alt="Channel Thumbnail" style="width: 36px; height: 36px;">
-                                    </a>
-                                    <div>
-                                        <span class="card-title mb-1 d-block fs-6 slightly-bold">비디오 제목 예시</span>
-                                        <span class="card-text text-muted mb-0">채널 이름</span>
-                                        <span class="card-text text-muted small d-block">조회수 100만회 · 3일 전</span>
+                                    <div class="position-relative ms-auto">
+                                        <button class="btn rounded-circle p-0 top-0 end-0" type="button"><i class="bi bi-three-dots-vertical"></i></button>
                                     </div>
                                 </div>
                             </div>

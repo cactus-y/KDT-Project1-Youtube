@@ -34,11 +34,12 @@
     font-weight: 500;
 }
 
+.small-span {
+    font-size: 14px;
+}
+
 body {
     padding-top: 60px;
     font-family: 'Roboto', Arial, Helvetica, sans-serif;
 }
 
-span {
-    font-size: 14px;
-}
