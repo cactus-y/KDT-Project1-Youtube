@@ -1,0 +1,36 @@
+.circular-profile-image {
+    border-radius: 50%; 
+    width: 30px; 
+    height: 30px; 
+    overflow: hidden; 
+    object-position: center;
+}
+
+.text-truncate-2-lines {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.text-truncate-1-lines {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.slightly-bold {
+    font-weight: 500;
+}
+
+body {
+    padding-top: 60px;
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+}
+
+span {
+    font-size: 14px;
+}
