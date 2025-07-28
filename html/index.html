@@ -9,9 +9,12 @@
 </head>
 <!-- temporal css styling -->
 <style>
-    /* #sidebar {
+    #sidebar {
         position: fixed;
-    } */
+        width: 240px;
+        overflow-y: auto;
+        height: calc(100vh - 60px);
+    }
 
     .sidebar-link {
         padding: 8px 12px;
@@ -93,8 +96,8 @@
             </aside>
 
             <!-- main section -->
-            <main class="container-fluid col-10 col-md-10 col-lg-10 mt-3">
-                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 g-4">
+            <main class="container-fluid col-10 col-md-10 col-lg-10 mt-3" style="margin-left: 240px;">
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-3 g-4">
                     <div class="col">
                         <a href="https://youtu.be/hnanNlDbsE4?si=l4FNF0x9uEDHJzkq" class="text-decoration-none text-dark">
                             <div class="card border-0">
