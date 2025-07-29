@@ -38,14 +38,22 @@
     }
 </style>
 
-<body>
+<body id="page-main">
     <!-- navbar -->
     <div id="navbar"></div>
     <script>
+        // later put this part to index.js
         fetch('./navbar.html')
             .then(res => res.text())
             .then(html => {
                 const navbar = document.getElementById('navbar')
+                navbar.insertAdjacentHTML('afterbegin', html)
+            })
+        
+        fetch('./sidebar.html')
+            .then(res => res.text())
+            .then(html => {
+                const sidebar = document.getElementById('sidebar')
                 navbar.insertAdjacentHTML('afterbegin', html)
             })
     </script>
@@ -53,51 +61,7 @@
     <div class="container-fluid">
         <div class="row">
             <!-- sidebar -->
-            <aside id="sidebar" class="col-2 col-md-2 col-lg-2 bg-white p-2">
-                <!-- main sidebar items -->
-                <a href="#" class="sidebar-link d-flex align-items-center w-100 text-decoration-none text-dark">
-                    <i class="bi bi-house-fill fs-5 me-3"></i> <span class="small-span">홈</span>
-                </a>
-                <a href="#" class="sidebar-link d-flex align-items-center w-100 text-decoration-none text-dark">
-                    <i class="bi bi-youtube fs-5 me-3"></i> <span class="small-span">Shorts</span>
-                </a>
-                <a href="#" class="sidebar-link d-flex align-items-center w-100 text-decoration-none text-dark">
-                    <i class="bi bi-youtube fs-5 me-3"></i> <span class="small-span">구독</span>
-                </a>
-                <a href="#" class="sidebar-link d-flex align-items-center w-100 text-decoration-none text-dark">
-                    <i class="bi bi-vinyl fs-5 me-3"></i> <span class="small-span">YouTube Music</span>
-                </a>
-                <!-- my page sidebar items -->
-                <hr class="my-2">
-                <a href="#" class="sidebar-link d-flex align-items-center w-100 text-decoration-none text-dark">
-                    <span class="slightly-bold">내 페이지</span>
-                    <i class="bi bi-chevron-right" style="margin-left: 10px;"></i>
-                </a>
-                <a href="#" class="sidebar-link d-flex align-items-center w-100 text-decoration-none text-dark">
-                    <i class="bi bi-clock-history fs-5 me-3"></i> <span class="small-span">시청 기록</span>
-                </a>
-                <a href="#" class="sidebar-link d-flex align-items-center w-100 text-decoration-none text-dark">
-                    <i class="bi bi-camera-reels fs-5 me-3"></i> <span class="small-span">재생 목록</span>
-                </a>
-                <a href="#" class="sidebar-link d-flex align-items-center w-100 text-decoration-none text-dark">
-                    <i class="bi bi-clock fs-5 me-3"></i> <span class="small-span">나중에 볼 동영상</span>
-                </a>
-                <a href="#" class="sidebar-link d-flex align-items-center w-100 text-decoration-none text-dark">
-                    <i class="bi bi-hand-thumbs-up fs-5 me-3"></i> <span class="small-span">좋아요 표시한 동영상</span>
-                </a>
-                <a href="#" class="sidebar-link d-flex align-items-center w-100 text-decoration-none text-dark">
-                    <i class="bi bi-download fs-5 me-3"></i> <span class="small-span">오프라인 저장 동영상</span>
-                </a>
-                <!-- subscriptions sidebar items -->
-                <hr class="my-2">
-                <span class=" d-flex align-items-center w-100 slightly-bold" style="padding: 8px 12px;">구독</span>
-                    <a href="#" class="sidebar-link d-flex align-items-center w-100 text-decoration-none text-dark">
-                        <i class="bi bi-youtube fs-5 me-3"></i> <span class="small-span">Channel 1</span>
-                    </a>
-                    <a href="#" class="sidebar-link d-flex align-items-center w-100 text-decoration-none text-dark">
-                        <i class="bi bi-youtube fs-5 me-3"></i> <span class="small-span">Channel 2</span>
-                    </a>
-            </aside>
+            
 
             <!-- main section -->
             <main class="col-10 col-md-10 col-lg-10" style="margin-left: 240px;">
