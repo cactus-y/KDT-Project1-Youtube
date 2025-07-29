@@ -21,6 +21,22 @@
     overflow: hidden;
     text-overflow: ellipsis;
 }
+#sidebar {
+        position: fixed;
+        width: 240px;
+        overflow-y: auto;
+        height: calc(100vh - 60px);
+    }
+
+    .sidebar-link {
+        padding: 8px 12px;
+        border-radius: 10px;
+        transition: background-color 0.2s;
+    }
+
+    .sidebar-link:hover {
+        background-color: #e5e5e5;
+    }
 
 #btn-search {
     background-color: #f8f8f8;
