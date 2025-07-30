@@ -15,16 +15,17 @@ function fetchNavbar() {
 
 // when the whole DOM elements are loaded, set the toggle button
 function initNavbarToggleButton() {
-    const toggleButton = document.getElementById("sidebarToggle");
-    const body = document.body;
+    const toggleButton = document.getElementById("sidebarToggle")
+    const body = document.body
 
     toggleButton.addEventListener("click", () => {
-        const pageID = body.id;
+        const pageID = body.id
 
         // navbar's toggle button works differently
         if (pageID === "page-main") {
-            const sidebar = document.getElementById("sidebar");
-            // not implemented yet
+            // const defaultSidebar = document.getElementById("defaultSidebar")
+
+
         } else if (pageID === "page-video") {
             // if modal view exists, just show it
             if(modalView) {
@@ -42,7 +43,7 @@ function initNavbarToggleButton() {
                     document.getElementById("modalCloseButton").addEventListener("click", () => {
                         const currentModal = bootstrap.Modal.getInstance(document.getElementById('sidebarModal'))
                         currentModal.hide()
-                    });
+                    })
                     
 
                     modalView = new bootstrap.Modal(document.getElementById('sidebarModal'), {
