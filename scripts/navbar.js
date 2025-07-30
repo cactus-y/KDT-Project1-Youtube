@@ -23,8 +23,8 @@ function initNavbarToggleButton() {
 
         // navbar's toggle button works differently
         if (pageID === "page-main") {
-            // const defaultSidebar = document.getElementById("defaultSidebar")
-
+            // default
+            
 
         } else if (pageID === "page-video") {
             // if modal view exists, just show it

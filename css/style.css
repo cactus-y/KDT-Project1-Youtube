@@ -15,12 +15,11 @@
 }
 
 .text-truncate-1-lines {
-    display: -webkit-box;
-    -webkit-line-clamp: 1;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
     text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
+
 #defaultSidebar {
     position: fixed;
     width: 240px;
@@ -28,14 +27,30 @@
     height: calc(100vh - 60px);
 }
 
-
-.sidebar-link {
+.default-sidebar-link {
     padding: 8px 12px;
     border-radius: 10px;
     transition: background-color 0.2s;
 }
 
-.sidebar-link:hover {
+.default-sidebar-link:hover {
+    background-color: #e5e5e5;
+}
+
+#collapsedSidebar {
+    position: fixed;
+    width: 72px;
+    overflow-y: auto;
+    height: calc(100vh - 60px);
+}
+
+.collapsed-sidebar-link {
+    padding-top: 16px;
+    padding-bottom: 14px;
+    transition: background-color 0.2s;
+}
+
+.collapsed-sidebar-link:hover {
     background-color: #e5e5e5;
 }
 
