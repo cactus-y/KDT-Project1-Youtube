@@ -86,7 +86,7 @@ function renderVideoCards(videos) {
                             class="rounded-circle me-2" alt="Channel Thumbnail"
                             style="width: 36px; height: 36px;">
                         <div>
-                            <span class="card-title mb-0 d-block slightly-bold text-truncate-2-lines">${video.title}</span>
+                            <span class="card-title mb-0 d-block slightly-bold text-truncate-2-lines" style="max-height: 50px;">${video.title}</span>
                             <span class="card-text text-muted mb-0 small-span">${video.channel}</span>
                             <span class="card-text text-muted d-block small-span">조회수 ${viewToString(video.views)} · ${dateToString(video.uploadedDate)}</span>
                         </div>
