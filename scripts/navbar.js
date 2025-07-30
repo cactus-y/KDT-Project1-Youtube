@@ -1,5 +1,6 @@
 // modal view variable
 let modalView = null
+let isDefaultSidebar = true
 
 // fetch navbar html file
 function fetchNavbar() {
@@ -24,7 +25,21 @@ function initNavbarToggleButton() {
         // navbar's toggle button works differently
         if (pageID === "page-main") {
             // default
+            const defaultSidebar = document.getElementById("defaultSidebar")
+            const collapsedSidebar = document.getElementById("collapsedSidebar")
+            const mainContent = document.getElementById("mainContent")
             
+            if(isDefaultSidebar) {
+                defaultSidebar.style.display = 'none'
+                collapsedSidebar.style.display = 'block'
+                mainContent.style.marginLeft = '72px'
+                isDefaultSidebar = false
+            } else {
+                collapsedSidebar.style.display = 'none'
+                defaultSidebar.style.display = 'block'
+                mainContent.style.marginLeft = '240px'
+                isDefaultSidebar = true
+            }
 
         } else if (pageID === "page-video") {
             // if modal view exists, just show it
