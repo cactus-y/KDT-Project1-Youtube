@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-white position-fixed top-0 start-0 end-0 z-3">
-    <div class="container-fluid d-flex justify-content-between align-items-center">
+    <div class="container-fluid d-flex justify-content-between align-items-center flex-nowrap">
         <!-- sidebar toggler, logo -->
         <div class="leftside d-flex align-items-center">
             <button class="btn btn-hover-gray rounded-circle me-3" id="sidebarToggle" type="button">
@@ -10,19 +10,31 @@
         </div>
 
         <!-- search bar -->
-        <div class="center flex-grow-1 d-flex justify-content-center mx-3">
-            <form class="d-flex align-items-center position-relative w-100" role="search" style="max-width: 600px;"
+        <div class="center flex-grow-1 d-flex justify-content-center mx-3" style="min-width: 0;">
+            <form class="d-flex align-items-center position-relative w-100 d-none d-md-inline-flex" role="search" style="max-width: 600px;"
                 onsubmit="">
-                <div class="input-group d-none d-md-flex">
-                    <input class="form-control border-secondary rounded-start-pill border-end-0" type="text"
+                <!-- input -->
+                <input class="form-control border-secondary rounded-start-pill border-end-0 d-none d-md-block" type="text"
                         placeholder="검색" name="query" id="searchInput">
-                    <button id="btn-search" class="btn border-secondary rounded-end-pill px-4" type="submit">
-                        <i class="bi bi-search"></i>
-                    </button>
-                </div>
+
+                <!-- search button -->
+                <button id="btn-search" class="btn border-secondary rounded-end-pill px-4 d-none d-md-inline-flex" type="submit">
+                    <i class="bi bi-search"></i>
+                </button>
 
                 <!-- mic button -->
-                <button class="btn btn-gray rounded-circle ms-2 d-none d-md-block" type="button">
+                <button class="btn btn-gray rounded-circle ms-2" type="button">
+                    <i class="bi bi-mic-fill"></i>
+                </button>
+            </form>
+
+            <!-- for small screen -->
+            <form class="d-flex align-items-center position-relative d-md-none" role="search" 
+                onsubmit="">
+                <button class="btn btn-hover-gray rounded-circle ms-2" type="button">
+                    <i class="bi bi-search"></i>
+                </button>
+                <button class="btn btn-hover-gray rounded-circle ms-2" type="button">
                     <i class="bi bi-mic-fill"></i>
                 </button>
             </form>
@@ -30,7 +42,8 @@
 
         <!-- new video, notification, profile -->
         <div class="rightside d-flex align-items-center">
-            <button class="btn btn-gray rounded-pill me-2" type="button"><i class="bi bi-plus"></i> New</button>
+            <button class="btn btn-gray rounded-pill me-2 align-items-center d-none d-sm-block" type="button"><i class="bi bi-plus"></i> <span class="small-span slightly-bold">New</span></button>
+            <button class="btn btn-gray rounded-pill me-2 align-items-center d-sm-none" type="button"><i class="bi bi-plus"></i> <span class="small-span slightly-bold"></button>
             <button class="btn btn-hover-gray rounded-circle me-3" type="button">
                 <i class="bi bi-bell"></i>
             </button>
