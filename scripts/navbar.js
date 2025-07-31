@@ -1,3 +1,5 @@
+
+
 export function initNavbar(onToggleSidebar) {
     fetch('../html/navbar.html')
         .then(res => res.text())
@@ -11,4 +13,12 @@ export function initNavbar(onToggleSidebar) {
                 if(onToggleSidebar) onToggleSidebar()
             })
         })
+    let scrollY = 0
+    document.addEventListener('show.bs.dropdown', () => { 
+        document.body.classList.add('dropdown-open') 
+    })
+    document.addEventListener('hide.bs.dropdown', () => { 
+        document.body.classList.remove('dropdown-open') 
+    })
 }
+

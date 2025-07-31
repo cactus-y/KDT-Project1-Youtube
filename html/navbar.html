@@ -43,11 +43,68 @@
         <!-- new video, notification, profile -->
         <div class="rightside d-flex align-items-center">
             <button class="btn btn-gray rounded-pill me-2 align-items-center d-none d-sm-block" type="button"><i class="bi bi-plus"></i> <span class="small-span slightly-bold">New</span></button>
-            <button class="btn btn-gray rounded-pill me-2 align-items-center d-sm-none" type="button"><i class="bi bi-plus"></i> <span class="small-span slightly-bold"></button>
+            <button class="btn btn-gray rounded-pill me-2 align-items-center d-sm-none" type="button"><i class="bi bi-plus"></i></button>
             <button class="btn btn-hover-gray rounded-circle me-3" type="button">
-                <i class="bi bi-bell"></i>
+                <i class="bi bi-bell"></i>    
             </button>
-            <a href="./profile.html"><img src="../images/sample_img.webp" alt="profile" class="circular-profile-image"></a>
+            <div class="profile-with-dropdown">
+                <img src="../images/sample_img.webp" alt="profile" class="circular-profile-image dropdown-toggle" data-bs-toggle="dropdown" type="button" aria-expanded="false">
+                <ul class="dropdown-menu dropdown-menu-end me-3 border-0">
+                    <li style="padding: 0px 16px;">
+                        <div class="d-flex mt-2" >
+                            <img src="../images/sample_img.webp" class="circular-profile-image me-2" alt="Profile Image" style="width: 40px; height: 40px;">
+                            <div>
+                                <span class="d-block" style="font-size: 16px;">Kermit</span>
+                                <span class="small-span">kermit123@example.com</span>
+                                <a href="#" class="text-decoration-none">
+                                    <span class="d-block small-span my-2">채널 만들기</span>
+                                </a>
+                                
+                            </div>
+                        </div>
+                    </li>
+                    <li><hr class="dropdown-divider mx-2"></li>
+                    <li><a href="#" class="dropdown-item"><i class="bi bi-google me-3"></i><span class="small-span">Google 계정</span></a></li>
+                    <li><a href="#" class="dropdown-item">
+                        <div class="d-flex align-items-center">
+                            <i class="bi bi-person-gear me-3"></i><span class="small-span flex-grow-1">계정 전환</span><i class="bi bi-chevron-right"></i>
+                        </div>
+                    </a></li>
+                    <li><a href="#" class="dropdown-item"><i class="bi bi-box-arrow-right me-3"></i><span class="small-span">로그아웃</span></a></li>
+                    <li><hr class="dropdown-divider mx-2"></li>
+                    <li><a href="#" class="dropdown-item"><i class="bi bi-camera-video me-3"></i><span class="small-span">YouTube 스튜디오</span></a></li>
+                    <li><a href="#" class="dropdown-item"><i class="bi bi-award me-3"></i><span class="small-span">내 Premium 혜택</span></a></li>
+                    <li><a href="#" class="dropdown-item"><i class="bi bi-coin me-3"></i><span class="small-span">구매 항목 및 멤버십</span></a></li>
+                    <li><hr class="dropdown-divider mx-2"></li>
+                    <li><a href="#" class="dropdown-item"><i class="bi bi-person-lock me-3"></i><span class="small-span">YouTube의 내 데이터</span></a></li>
+                    <li><a href="#" class="dropdown-item">
+                        <div class="d-flex align-items-center">
+                            <i class="bi bi-moon me-3"></i><span class="small-span flex-grow-1">디자인: 기기 테마</span><i class="bi bi-chevron-right"></i>
+                        </div>
+                    </a></li>
+                    <li><a href="#" class="dropdown-item">
+                        <div class="d-flex align-items-center">
+                            <i class="bi bi-translate me-3"></i><span class="small-span flex-grow-1">언어: 한국어</span><i class="bi bi-chevron-right"></i>
+                        </div>
+                    </a></li>
+                    <li><a href="#" class="dropdown-item">
+                        <div class="d-flex align-items-center">
+                            <i class="bi bi-shield-lock me-3"></i><span class="small-span flex-grow-1">제한 모드: 사용 안함</span><i class="bi bi-chevron-right"></i>
+                        </div>
+                    </a></li>
+                    <li><a href="#" class="dropdown-item">
+                        <div class="d-flex align-items-center">
+                            <i class="bi bi-globe me-3"></i><span class="small-span flex-grow-1">위치: 한국</span><i class="bi bi-chevron-right"></i>
+                        </div>
+                    </a></li>
+                    <li><a href="#" class="dropdown-item"><i class="bi bi-keyboard me-3"></i><span class="small-span">단축키</span></a></li>
+                    <li><hr class="dropdown-divider mx-2"></li>
+                    <li><a href="#" class="dropdown-item"><i class="bi bi-gear me-3"></i><span class="small-span">설정</span></a></li>
+                    <li><hr class="dropdown-divider mx-2"></li>
+                    <li><a href="#" class="dropdown-item"><i class="bi bi-question-circle me-3"></i><span class="small-span">고객센터</span></a></li>
+                    <li><a href="#" class="dropdown-item"><i class="bi bi-send-exclamation me-3"></i><span class="small-span">의견 보내기</span></a></li>
+                </ul>
+            </div>
         </div>
     </div>
 </nav>
