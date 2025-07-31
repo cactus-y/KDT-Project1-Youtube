@@ -8,26 +8,6 @@ function shuffleArray(arr) {
 
 // view calculator
 function viewToString(viewNum) {
-//     if(viewNum < 1000) { return `${viewNum}회` }
-
-//     const units = [
-//         { value: 100000000, label: '억'},
-//         { value: 10000, label: '만'},
-//         { value: 1000, label: '천'}
-//     ]
-// ``
-//     for(const { val, label } of units) {
-//         if(viewNum >= val) {
-//             const base = viewNum / val
-//             if(base >= 10) { return `${Math.floor(base)}${label}회`}
-//             else {
-//                 const rounded = Math.round(base * 10) / 10
-//                 return `${rounded % 1 === 0 ? Math.floor(rounded) : rounded}${label}회`
-//             }
-//         }
-//     }
-//     return `${viewNum}회`
-
     const HUN_M = viewNum / 100000000
     const TEN_K = viewNum / 10000
     const K = viewNum / 1000
