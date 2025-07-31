@@ -9,11 +9,11 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 </head>
 <style>
-    .btn.btn-subscribe {
+    .btn.btn-not-subscribed {
         background-color: black;
     }
 
-    .btn.btn-subscribe:hover {
+    .btn.btn-not-subscribed:hover {
         background-color: #272727;
     }
 
@@ -65,31 +65,17 @@
                 </div>
 
                 <!-- video description section -->
-                <div class="video-description mt-3">
+                <div class="video-description mt-3" id="videoDescriptionContainer">
                     <!-- title -->
-                    <h5 class="fw-bold">침착맨 삼국지 완전판</h4>
                     <div class="video-buttons d-flex justify-content-between align-items-center">
                         <!-- channel buttons -->
-                        <div class="channel-btn-group d-flex">
-                            <a href="https://www.youtube.com/@ChimChakMan_Official">
-                                <img src="https://yt3.googleusercontent.com/Vaomx_a8Qs9bDHS09zsQBB8BG5rY3LWnvb0zcK4oqThz7oT4PCeZQYyMSsQLGh8pmAwlVAmYew=s160-c-k-c0x00ffffff-no-rj"
-                                    alt="channel_profile" class="rounded-circle me-2"
-                                    style="width: 40px; height: 40px;">
-                            </a>
-                            <div class="ms-1 py-0">
-                                <a href="https://www.youtube.com/@ChimChakMan_Official"
-                                    class="text-decoration-none text-black"><span class="d-block">침착맨</span></a>
-                                <span class="text-muted d-block" style="font-size: 12px;">구독자 288만명</span>
-                            </div>
-                            <button class="btn btn-subscribe rounded-pill px-3 my-1 ms-4" type="button">
-                                <span class="text-white small-span">구독</span>
-                            </button>
+                        <div class="d-flex" id="channelButtonGroup">
                         </div>
                         <!-- video related buttons -->
                         <div class="video-btn-group d-flex">
                             <div class="like-dislike d-flex me-2">
                                 <button class="btn btn-gray rounded-start-pill " type="button">
-                                    <i class="bi bi-hand-thumbs-up me-2"></i><span class="small-span">13만</span>
+                                    <i class="bi bi-hand-thumbs-up me-2"></i><span class="small-span" id="videoLikeNum">13만</span>
                                 </button>
                                 <div class="divider my-2" style="width: 1px; background: #ccc;"></div>
                                     <button class="btn btn-gray rounded-end-pill" type="button"><i class="bi bi-hand-thumbs-down"></i></button>
@@ -113,10 +99,8 @@
                         <!-- video description section -->
                         <div class="video-description-box my-2" style="background-color: #f2f2f2; border-radius: 12px;">
                             <div id="video-description-text" class="collapsed cursor-pointer mb-2 px-3 py-2">
-                                <span class="fw-semibold small-span">조회수 2464만회 4년 전</span><br>
-                                <span class="small-span">침착맨 삼국지</span><br>
-                                <span class="small-span">침착맨 삼국지 인물전</span><br>
-                                <span class="small-span">침착맨 몰아보기 합본판...더보기</span>
+                                <span class="fw-semibold small-span d-block" id="viewsAndDateText"></span>
+                                <span class="small-span" id="videoDescriptionText"></span>
                             </div>
                             <div id="toggle-collapse" class="text-black cursor-pointer" style="display: none;">간략히</div>
                         </div>
@@ -126,7 +110,7 @@
                 <div class="video-comment-container mt-3">
                     <!-- comment counting -->
                     <div class="video-comment-count py-2 d-flex align-items-center">
-                        <h5 class="fw-bold pt-2">댓글 18,517개</h5>
+                        <h5 class="fw-bold pt-2" id="commentCountText"></h5>
                         <button class="btn" type="button"><i class="bi bi-filter-left"></i><span class="small-span">정렬 기준</span></button>
                     </div>
                     <!-- comment input -->
