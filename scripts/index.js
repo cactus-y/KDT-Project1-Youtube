@@ -66,25 +66,26 @@ function renderVideoCards(videos) {
         videoCard.className = 'col'
         
         videoCard.innerHTML = `
-            <a href="./video.html?videoId=${video.id}" class="text-decoration-none text-dark">
-                <div class="card border-0 video-card">
-                    <img src="${video.thumbnail}" class="card-img-top rounded" alt="Thumbnail">
-                    <div class="card-body p-2 d-flex">
-                        <img src="${video.profileImgLink}"
-                            class="rounded-circle me-2" alt="Channel Thumbnail"
-                            style="width: 36px; height: 36px;">
-                        <div>
+            <div class="card border-0 video-card" role="button" onclick="window.location.href='./video.html?videoId=${video.id}'">
+                <img src="${video.thumbnail}" class="card-img-top rounded" alt="Thumbnail">
+                <div class="card-body p-2 pe-0 d-flex">
+                    <a href="${video.channelLink}" class="me-1" onclick="event.stopPropagation();">
+                        <img src="${video.profileImgLink}" class="rounded-circle me-2" alt="Channel Thumbnail" style="width: 36px; height: 36px;">
+                    </a>
+                    <div>
+                        <a href="./video.html?videoId=${video.id}" class="text-decoration-none text-dark">
                             <span class="card-title mb-0 d-block slightly-bold text-truncate-2-lines" style="max-height: 50px;">${video.title}</span>
+                        </a>
+                        <a href="${video.channelLink}" class="text-decoration-none text-dark" onclick="event.stopPropagation();">
                             <span class="card-text text-muted mb-0 small-span">${video.channel}</span>
-                            <span class="card-text text-muted d-block small-span">조회수 ${viewToString(video.views)} · ${dateToString(video.uploadedDate)}</span>
-                        </div>
-                        <div class="position-relative ms-auto">
-                            <button class="btn rounded-circle p-0 top-0 end-0" type="button"><i
-                                class="bi bi-three-dots-vertical"></i></button>
-                        </div>
+                        </a>
+                        <span class="card-text text-muted d-block small-span">조회수 ${viewToString(video.views)} · ${dateToString(video.uploadedDate)}</span>
+                    </div>
+                    <div class="position-relative ms-auto" onclick="event.stopPropagation();">
+                        <button class="btn rounded-circle p-0 top-0 end-0" type="button"><i class="bi bi-three-dots-vertical"></i></button>
                     </div>
                 </div>
-            </a>
+            </div>
         `
 
         container.appendChild(videoCard)
