@@ -1,5 +1,5 @@
 // array shuffling function
-function shuffleArray(arr) {
+export function shuffleArray(arr) {
     for(let i = arr.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [arr[i], arr[j]] = [arr[j], arr[i]]
@@ -7,7 +7,7 @@ function shuffleArray(arr) {
 }
 
 // view calculator
-function viewToString(viewNum) {
+export function viewToString(viewNum) {
     const HUN_M = viewNum / 100000000
     const TEN_K = viewNum / 10000
     const K = viewNum / 1000
@@ -30,7 +30,7 @@ function viewToString(viewNum) {
 }
 
 // date calculator
-function dateToString(date) {
+export function dateToString(date) {
     const [year, month, day] = date.split('.').map(str => parseInt(str.trim(), 10))
     const dateObj = new Date(year, month - 1, day)
     const now = new Date()
