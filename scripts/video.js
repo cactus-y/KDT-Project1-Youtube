@@ -310,6 +310,12 @@ function closeComment() {
     document.getElementById('submitCommentButton').disabled = true
 }
 
+function escapeHTML(str) {
+    return str.replace(/[&<>"']/g, match => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;'
+    }[match]))
+}
+
 // submit comment
 function submitComment() {
     const content = document.getElementById('realCommentTextArea').value.trim()
@@ -323,7 +329,7 @@ function submitComment() {
             <div class="mx-1 py-0">
                 <span class="comment-author slightly-bold" style="font-size: 13px;">@cactus-y</span>
                 <span class="comment-date text-muted" style="font-size: 12px;">방금 전</span>
-                <span class="comment-body d-block small-span">${content.replace(/\n/g, '<br>')}</span>
+                <span class="comment-body d-block small-span">${escapeHTML(content).replace(/\n/g, '<br>')}</span>
                 <div class="like-dislike-btn-group d-flex align-items-center">
                     <button class="btn btn-hover-gray rounded-circle p-0" type="button"><i class="bi bi-hand-thumbs-up"></i></button>
                     <span class="text-muted ms-1 me-2" style="font-size: 12px;"></span>
