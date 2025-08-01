@@ -48,14 +48,6 @@
 <body id="page-video">
     <!-- navbar -->
     <div id="navbar"></div>
-    <!-- <script>
-        fetch('./navbar.html')
-            .then(res => res.text())
-            .then(html => {
-                document.getElementById('navbar').innerHTML = html
-            })
-    </script> -->
-
     <div class="container-fluid mt-4">
         <div class="row justify-content-center">
             <!-- main section -->
@@ -97,12 +89,10 @@
                         </div>
 
                         <!-- video description section -->
-                        <div class="video-description-box my-2" style="background-color: #f2f2f2; border-radius: 12px;">
-                            <div id="video-description-text" class="collapsed cursor-pointer mb-2 px-3 py-2">
-                                <span class="fw-semibold small-span d-block" id="viewsAndDateText"></span>
-                                <span class="small-span" id="videoDescriptionText"></span>
-                            </div>
-                            <div id="toggle-collapse" class="text-black cursor-pointer" style="display: none;">간략히</div>
+                        <div id="videoDescriptionBox" class="my-2 mb-2 px-3 py-2 " role="button" style="background-color: #f2f2f2; border-radius: 12px; pointer-events: auto;">
+                            <span class="fw-semibold small-span d-block" id="viewsAndDateText"></span>
+                            <span class="small-span text-truncate-3-lines" id="videoDescriptionText" style="height: 65px;"></span>
+                            <span id="collapseDescriptionButton" role="button" class="slightly-bold small-span" style="display: none;">간략히</span>
                         </div>
                 </div>
 

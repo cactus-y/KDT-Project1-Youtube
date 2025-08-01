@@ -4,6 +4,9 @@ import { shuffleArray, viewToString, dateToString} from './utils.js'
 // some variables
 let sidebarModalView = null
 let numComments = -1
+let isDescriptionExpanded = false
+let expandDescriptionClickHandler = null
+let collapseDescriptionClickHandler = null
 
 // sidebar toggle button action
 function handleSidebarToggle() {
@@ -44,9 +47,8 @@ function popMainVideo(videos, videoId) {
 // main video rendering
 function renderMainVideo(video) {
     document.title = video.title
-    const simplifiedView = viewToString(video.views)
-    const commaView = parseInt(video.views).toLocaleString('ko-KR')
-    const simplifiedDate = dateToString(video.uploadedDate)
+    const simplifiedViewAndDate = `조회수 ${viewToString(video.views)}\u00A0\u00A0${dateToString(video.uploadedDate)}`
+    const expandedViewAndDate = `조회수 ${parseInt(video.views).toLocaleString('ko-KR')}회\u00A0\u00A0${video.uploadedDate}`
 
     // main video section
     const videoContainer = document.getElementById('mainVideoIframeContainer')
@@ -81,6 +83,7 @@ function renderMainVideo(video) {
         </button>
     `
     document.getElementById('subscribeButton').addEventListener('click', (e) => {
+        console.log(e)
         const button = e.target.closest('button')
         if(!button) return
 
@@ -99,12 +102,29 @@ function renderMainVideo(video) {
     // likes
     document.getElementById('videoLikeNum').innerText = video.likes
 
-    // views && date (simplified version)
-    // this part is temporal. it will be modified when the toggle for description is ready
-    document.getElementById('viewsAndDateText').innerText = `조회수 ${simplifiedView}\u00A0\u00A0${simplifiedDate}`
-    document.getElementById('videoDescriptionText').innerText = `abcdef\nghijkl\nmnopqr\n`
+    // views && date
+    const descriptionBox = document.getElementById('videoDescriptionBox')
+    const collapseButton = document.getElementById('collapseDescriptionButton')
 
-    // comments will be handled here
+    document.getElementById('viewsAndDateText').innerText = simplifiedViewAndDate
+    document.getElementById('videoDescriptionText').innerText = `${video.description}`
+
+    if(expandDescriptionClickHandler) { descriptionBox.removeEventListener('click', expandDescriptionClickHandler) }
+    if(collapseDescriptionClickHandler) { collapseButton.removeEventListener('click', collapseDescriptionClickHandler) }
+
+    expandDescriptionClickHandler = () => { expandDescription(expandedViewAndDate) }
+    collapseDescriptionClickHandler = (e) => { 
+        e.stopPropagation()
+        collapseDescription(simplifiedViewAndDate) 
+    }
+
+    descriptionBox.addEventListener('click', expandDescriptionClickHandler)
+    collapseButton.addEventListener('click', collapseDescriptionClickHandler)
+}
+
+// comments rendering
+function rederVideoComments(comments) {
+    numComments = comments.length
     document.getElementById('commentCountText').innerText = `댓글 ${numComments}개`
 }
 
@@ -138,6 +158,39 @@ function renderRecommendedVideoList(videos) {
     })
 }
 
+// video description button setting
+function expandDescription(expandedViewAndDate) {
+    if(isDescriptionExpanded) return
+    isDescriptionExpanded = true
+
+    const viewsAndDateText = document.getElementById('viewsAndDateText')
+    const descriptionBox = document.getElementById('videoDescriptionBox')
+    const collapseButton = document.getElementById('collapseDescriptionButton')
+
+    viewsAndDateText.innerText = expandedViewAndDate
+    document.getElementById('videoDescriptionText').classList.remove('text-truncate-3-lines')
+    collapseButton.style.display = 'block'
+
+    // role attribue removal
+    descriptionBox.removeAttribute('role')
+}
+
+function collapseDescription(simplifiedDateAndView) {
+    if(!isDescriptionExpanded) return
+    isDescriptionExpanded = false
+
+    const viewsAndDateText = document.getElementById('viewsAndDateText')
+    const descriptionBox = document.getElementById('videoDescriptionBox')
+    const collapseButton = document.getElementById('collapseDescriptionButton')
+
+    viewsAndDateText.innerText = simplifiedDateAndView
+    document.getElementById('videoDescriptionText').classList.add('text-truncate-3-lines')
+    collapseButton.style.display = 'none'
+
+    // role attribue added
+    descriptionBox.setAttribute('role', 'button')
+}
+
 window.addEventListener('DOMContentLoaded', () => {
     // video data loading
     fetch('../data/videos.json')
@@ -153,6 +206,12 @@ window.addEventListener('DOMContentLoaded', () => {
             renderRecommendedVideoList(videos)
         })
     
+    fetch('../data/comments.json')
+        .then(res => res.json())
+        .then(comments => {
+            rederVideoComments(comments)
+        })
+
     // navbar loading
     initNavbar(handleSidebarToggle)
 }) 
