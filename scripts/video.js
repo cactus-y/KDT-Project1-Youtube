@@ -285,6 +285,60 @@ function collapseDescription(simplifiedDateAndView) {
     descriptionBox.setAttribute('role', 'button')
 }
 
+// activate comment textfield
+function activateCommentTextfield() {
+    const dummyCommentInputContainer = document.getElementById('dummyCommentInputContainer')
+    const focusedCommentInputContainer = document.getElementById('focusedCommentInputContainer')
+
+    dummyCommentInputContainer.classList.remove('d-block')
+    dummyCommentInputContainer.classList.add('d-none')
+    focusedCommentInputContainer.classList.remove('d-none')
+    focusedCommentInputContainer.classList.add('d-block')
+    document.getElementById('realCommentTextArea').focus()
+}
+
+// cancel comment writing
+function closeComment() {
+    const dummyCommentInputContainer = document.getElementById('dummyCommentInputContainer')
+    const focusedCommentInputContainer = document.getElementById('focusedCommentInputContainer')
+
+    focusedCommentInputContainer.classList.remove('d-block')
+    focusedCommentInputContainer.classList.add('d-none')
+    dummyCommentInputContainer.classList.remove('d-none')
+    dummyCommentInputContainer.classList.add('d-block')
+    document.getElementById('realCommentTextArea').value = ''
+    document.getElementById('submitCommentButton').disabled = true
+}
+
+// submit comment
+function submitComment() {
+    const content = document.getElementById('realCommentTextArea').value.trim()
+    if(!content) return
+
+    const singleComment = document.createElement('div')
+    singleComment.className = 'mb-2'
+    singleComment.innerHTML = `
+        <div class="video-comment-profile d-flex">
+            <img src="../images/sample_img.webp" alt="Comment Profile Image" class="rounded-circle me-2" style="width: 40px; height: 40px;">
+            <div class="mx-1 py-0">
+                <span class="comment-author slightly-bold" style="font-size: 13px;">@cactus-y</span>
+                <span class="comment-date text-muted" style="font-size: 12px;">방금 전</span>
+                <span class="comment-body d-block small-span">${content.replace(/\n/g, '<br>')}</span>
+                <div class="like-dislike-btn-group d-flex align-items-center">
+                    <button class="btn btn-hover-gray rounded-circle p-0" type="button"><i class="bi bi-hand-thumbs-up"></i></button>
+                    <span class="text-muted ms-1 me-2" style="font-size: 12px;"></span>
+                    <button class="btn btn-hover-gray rounded-circle p-0" type="button"><i class="bi bi-hand-thumbs-down"></i></button>
+                    <button class="btn btn-hover-gray rounded-pill" type="button"><span class="slightly-bold small-span">답글</span></button>
+                </div>
+            </div>
+        </div>
+        `
+    document.getElementById('commentListContainer').prepend(singleComment)
+    closeComment()
+    numComments += 1
+    document.getElementById('commentCountText').innerText = `댓글 ${numComments}개`
+}
+
 window.addEventListener('DOMContentLoaded', () => {
     // video data loading
     fetch('../data/videos.json')
@@ -308,4 +362,22 @@ window.addEventListener('DOMContentLoaded', () => {
 
     // navbar loading
     initNavbar(handleSidebarToggle)
+
+    // about comment's input focus button
+    // textfield focusing button
+    document.getElementById('dummyInputButton').addEventListener('click', activateCommentTextfield)
+    // cancel comment writing
+    document.getElementById('cancelCommentButton').addEventListener('click', closeComment)
+    // submit comment
+    document.getElementById('submitCommentButton').addEventListener('click', submitComment)
+    // when nothing written, button will be disabled
+    document.getElementById('realCommentTextArea').addEventListener('input', () => {
+        const commentTextArea = document.getElementById('realCommentTextArea')
+        commentTextArea.style.height = 'auto'
+        commentTextArea.style.height = `${commentTextArea.scrollHeight}px`
+
+        const value = commentTextArea.value.trim()
+        if(value.length > 0) { document.getElementById('submitCommentButton').disabled = false }
+        else { document.getElementById('submitCommentButton').disabled = true }
+    })
 }) 

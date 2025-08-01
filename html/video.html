@@ -29,8 +29,23 @@
     .modal.custom-slide.show .modal-dialog {
         transform: translateX(0%);
     }
+
+    #dummyInputButton {
+        border: none;
+        border-bottom: 1px solid #e5e5e5;
+        resize: none;
+        overflow: hidden;
+        font-size: 14px;
+        box-shadow: none;
+        margin-bottom: 35px;
+    }
+    #dummyInputButton:focus {
+        outline: none;
+        box-shadow: none;
+        border-color: transparent;
+    }
     
-    textarea {
+    .form-textarea {
         border: none;
         border-bottom: 1px solid #909090;
         resize: none;
@@ -39,9 +54,15 @@
         box-shadow: none;
     }
 
-    textarea:focus {
+    .form-textarea:focus {
         border-bottom: 2px solid black;
         outline: none;
+    }
+    #submitCommentButton:disabled {
+        background-color: #f2f2f2;
+        color: #909090;
+        border: none;
+        cursor: not-allowed;
     }
 </style>
 
@@ -104,33 +125,33 @@
                         <button class="btn" type="button"><i class="bi bi-filter-left"></i><span class="small-span">정렬 기준</span></button>
                     </div>
                     <!-- comment input -->
-                    <!-- *** This part should be modified when js file is implemented! *** -->
-                    <div id="video-comment-input-container" class="">
-                        <!-- profile section -->
-                        <div id="video-comment-profile" class="d-flex align-items-center">
-                            <img src="../images/sample_img.webp" alt="Comment Profile Image" class="rounded-circle me-2"
-                                style="width: 30px; height: 30px;">
-                            <div class="mx-1 py-0">
-                                <span class="d-block small-span">사용자</span>
-                                <span class="d-block small-span">@cactus-y</span>
-                            </div>
-                            <button id="btn-profile-edit" class="btn" type="button"><i class="bi bi-pencil"></i></button>
-                        </div>
-
+                    <div id="dummyCommentInputContainer" class="d-flex align-items-center d-block" >
+                        <img src="../images/sample_img.webp" alt="Comment Profile Image" class="rounded-circle me-2" style="width: 40px; height: 40px;">
+                        <textarea id="dummyInputButton" class="w-100 mt-3 button-textarea" rows="1" placeholder="댓글 추가..."></textarea>
+                    </div>
+                    <div id="focusedCommentInputContainer" class="d-none">
                         <!-- comment textarea section -->
                         <form action="#">
-                            <div id="comment-form-group" class="">
-                                <textarea class="w-100 mt-3" rows="1" placeholder="댓글 추가..."></textarea>
+                            <!-- profile section -->
+                            <div id="video-comment-profile" class="d-flex align-items-center">
+                                <img src="../images/sample_img.webp" alt="Comment Profile Image" class="rounded-circle me-2" style="width: 36px; height: 36px;">
+                                <div class="mx-1 py-0">
+                                    <span class="d-block small-span">사용자</span>
+                                    <span class="d-block small-span" id="commentAuthorId">@cactus-y</span>
+                                </div>
+                                <button id="btn-profile-edit" class="btn" type="button"><i class="bi bi-pencil"></i></button>
+                            </div>
+                            <div id="comment-form-group">
+                                <textarea id="realCommentTextArea" class="w-100 mt-3 form-textarea" rows="1"></textarea>
                             </div>
                             <div id="comment-btn-group" class="d-flex justify-content-end">
-                                <button class="btn btn-light rounded-pill me-1" type="reset"><span class="small-span">취소</span></button>
-                                <button class="btn btn-primary rounded-pill ms-1" type="button" disabled><span class="small-span">댓글</span></button>
+                                <button id="cancelCommentButton" class="btn btn-light rounded-pill me-1" type="reset"><span class="small-span">취소</span></button>
+                                <button id="submitCommentButton" class="btn btn-primary rounded-pill ms-1" type="button" disabled><span class="small-span">댓글</span></button>
                             </div>
                         </form>
-
-                        <!-- comments list -->
-                        <div id="commentListContainer" class="mb-3"></div>
                     </div>
+                    <!-- comments list -->
+                    <div id="commentListContainer" class="mb-3"></div>
                 </div>
             </main>
 
