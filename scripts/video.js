@@ -5,6 +5,7 @@ import { shuffleArray, viewToString, dateToString} from './utils.js'
 let sidebarModalView = null
 let numComments = -1
 let isDescriptionExpanded = false
+let isLikeButtonPressed = false
 let expandDescriptionClickHandler = null
 let collapseDescriptionClickHandler = null
 
@@ -101,6 +102,18 @@ function renderMainVideo(video) {
 
     // likes
     document.getElementById('videoLikeNum').innerText = video.likes
+    document.getElementById('videoLikeButton').addEventListener('click', () => {
+        if(isLikeButtonPressed) {
+            document.getElementById('thumbsUpIcon').classList.remove('bi-hand-thumbs-up-fill')
+            document.getElementById('thumbsUpIcon').classList.add('bi-hand-thumbs-up')
+            isLikeButtonPressed = false
+        } else {
+            document.getElementById('thumbsUpIcon').classList.remove('bi-hand-thumbs-up')
+            document.getElementById('thumbsUpIcon').classList.add('bi-hand-thumbs-up-fill')
+            isLikeButtonPressed = true
+        }
+        
+    })
 
     // views && date
     const descriptionBox = document.getElementById('videoDescriptionBox')
