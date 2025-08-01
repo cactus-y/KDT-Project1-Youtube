@@ -11,7 +11,9 @@
         "videoUrl": "https://www.youtube.com/embed/hnanNlDbsE4",
         "views": 24621763,
         "uploadedDate": "2020. 10. 4.",
-        "likes": "13만"
+        "likes": "13만",
+        "description": ""
+        
     },
     {
         "id": 2,
@@ -25,7 +27,8 @@
         "videoUrl": "https://www.youtube.com/embed/QK2-QUcp4zY",
         "views": 5255634,
         "uploadedDate": "2021. 10. 1.",
-        "likes": "3.4만"
+        "likes": "3.4만",
+        "description": ""
     },
     {
         "id": 3,
@@ -39,7 +42,8 @@
         "videoUrl": "https://www.youtube.com/embed/NjLqAv5Mc8s",
         "views": 2691856,
         "uploadedDate": "2022. 10. 5.",
-        "likes": "6만"
+        "likes": "6만",
+        "description": ""
     },
     {
         "id": 4,
@@ -53,7 +57,8 @@
         "videoUrl": "https://www.youtube.com/embed/HzxdVaKaPyA",
         "views": 1693150,
         "uploadedDate": "2021. 11. 1.",
-        "likes": "1.6만"
+        "likes": "1.6만",
+        "description": ""
     },
     {
         "id": 5,
@@ -67,7 +72,8 @@
         "videoUrl": "https://www.youtube.com/embed/QJAewX4fnPc",
         "views": 904221,
         "uploadedDate": "2025. 7. 2.",
-        "likes": "2.1만"
+        "likes": "2.1만",
+        "description": ""
     },
     {
         "id": 6,
@@ -81,7 +87,8 @@
         "videoUrl": "https://www.youtube.com/embed/FouwNULSRNw",
         "views": 864157,
         "uploadedDate": "2025. 5. 8.",
-        "likes": "1.2만"
+        "likes": "1.2만",
+        "description": ""
     },
     {
         "id": 7,
@@ -95,7 +102,8 @@
         "videoUrl": "https://www.youtube.com/embed/-GsrYvZoAdA",
         "views": 1483702,
         "uploadedDate": "2022. 8. 14.",
-        "likes": "1.9만"
+        "likes": "1.9만",
+        "description": ""
     },
     {
         "id": 8,
@@ -109,7 +117,8 @@
         "videoUrl": "https://www.youtube.com/embed/oWSNOrBbOIU",
         "views": 1357092,
         "uploadedDate": "2023. 6. 14.",
-        "likes": "3.4만"
+        "likes": "3.4만",
+        "description": ""
     },
     {
         "id": 9,
@@ -123,7 +132,8 @@
         "videoUrl": "https://www.youtube.com/embed/5ZXOV1ma35g",
         "views": 939701,
         "uploadedDate": "2024. 2. 7.",
-        "likes": "1.3만"
+        "likes": "1.3만",
+        "description": ""
     },
     {
         "id": 10,
@@ -137,7 +147,8 @@
         "videoUrl": "https://www.youtube.com/embed/r3rTCnUnZrE",
         "views": 257575,
         "uploadedDate": "2023. 3. 3.",
-        "likes": "1.9천"
+        "likes": "1.9천",
+        "description": ""
     },
     {
         "id": 11,
@@ -151,7 +162,8 @@
         "videoUrl": "https://www.youtube.com/embed/3F0YnB0bPqo",
         "views": 948250,
         "uploadedDate": "2021. 9. 21.",
-        "likes": "1.1만"
+        "likes": "1.1만",
+        "description": ""
     },
     {
         "id": 12,
@@ -165,7 +177,8 @@
         "videoUrl": "https://www.youtube.com/embed/iJyac4AXKKY",
         "views": 15027028,
         "uploadedDate": "2021. 4. 4.",
-        "likes": "38만"
+        "likes": "38만",
+        "description": ""
     },
     {
         "id": 13,
@@ -179,7 +192,8 @@
         "videoUrl": "https://www.youtube.com/embed/mCJxn8GyC60",
         "views": 217009,
         "uploadedDate": "2025. 7. 26.",
-        "likes": "5.3천"
+        "likes": "5.3천",
+        "description": ""
     },
     {
         "id": 14,
@@ -193,7 +207,8 @@
         "videoUrl": "https://www.youtube.com/embed/b68zYQz0t48",
         "views": 147830,
         "uploadedDate": "2025. 7. 14.",
-        "likes": "4.5천"
+        "likes": "4.5천",
+        "description": ""
     },
     {
         "id": 15,
@@ -207,7 +222,8 @@
         "videoUrl": "https://www.youtube.com/embed/qg40imnWXG8",
         "views": 1210538,
         "uploadedDate": "2023. 8. 4.",
-        "likes": "1.3만"
+        "likes": "1.3만",
+        "description": ""
     },
     {
         "id": 16,
@@ -221,7 +237,8 @@
         "videoUrl": "https://www.youtube.com/embed/DIPxnt5vnhU",
         "views": 6520093,
         "uploadedDate": "2023. 8. 19.",
-        "likes": "12만"
+        "likes": "12만",
+        "description": ""
     },
     {
         "id": 17,
@@ -235,7 +252,8 @@
         "videoUrl": "https://www.youtube.com/embed/RXeOiIDNNek",
         "views": 12319585,
         "uploadedDate": "2024. 6. 11.",
-        "likes": "26만"
+        "likes": "26만",
+        "description": ""
     },
     {
         "id": 18,
@@ -249,7 +267,8 @@
         "videoUrl": "https://www.youtube.com/embed/0_DjDdfqtUE",
         "views": 8479326,
         "uploadedDate": "2025. 6. 10.",
-        "likes": "20만"
+        "likes": "20만",
+        "description": ""
     },
     {
         "id": 19,
@@ -263,7 +282,8 @@
         "videoUrl": "https://www.youtube.com/embed/QljRe99OMCU",
         "views": 54432377,
         "uploadedDate": "2016. 4. 19.",
-        "likes": "74만"
+        "likes": "74만",
+        "description": ""
     },
     {
         "id": 20,
@@ -277,7 +297,8 @@
         "videoUrl": "https://www.youtube.com/embed/yz7KDQae0Xc",
         "views": 724440,
         "uploadedDate": "2024. 7. 28.",
-        "likes": "1.2만"
+        "likes": "1.2만",
+        "description": ""
     },
     {
         "id": 21,
@@ -291,7 +312,8 @@
         "videoUrl": "https://www.youtube.com/embed/c7KohsBQJNs",
         "views": 1116601,
         "uploadedDate": "2020. 11. 29.",
-        "likes": "4.4천"
+        "likes": "4.4천",
+        "description": ""
     },
     {
         "id": 22,
@@ -305,7 +327,8 @@
         "videoUrl": "https://www.youtube.com/embed/R9wM2Tdcv5Q",
         "views": 2107372,
         "uploadedDate": "2022. 5. 2.",
-        "likes": "1만"
+        "likes": "1만",
+        "description": ""
     },
     {
         "id": 23,
@@ -319,7 +342,8 @@
         "videoUrl": "https://www.youtube.com/embed/Rbo_neXEAU0",
         "views": 270192,
         "uploadedDate": "2025. 6. 10.",
-        "likes": "3천"
+        "likes": "3천",
+        "description": ""
     },
     {
         "id": 24,
@@ -333,6 +357,7 @@
         "videoUrl": "https://www.youtube.com/embed/_t0AQKwmd2M",
         "views": 444509,
         "uploadedDate": "2025. 6. 5.",
-        "likes": "4.1천"
+        "likes": "4.1천",
+        "description": ""
     }
 ]

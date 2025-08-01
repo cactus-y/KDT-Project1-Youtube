@@ -1,0 +1,78 @@
+[
+    {
+        "username": "another-cactus",
+        "profileUrl": "../images/another_sample_img.webp",
+        "date": "2개월 전",
+        "likes": "1.8천",
+        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "replies": [
+            {
+                "username": "cactus-y",
+                "profileUrl": "../images/sample_img.webp",
+                "date": "1개월 전",
+                "likes": "285",
+                "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+            },
+            {
+                "username": "another-cactus",
+                "profileUrl": "../images/another_sample_img.webp",
+                "date": "3주 전",
+                "likes": "349",
+                "content": "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            }
+        ]
+    },
+    {
+        "username": "not-cactusy",
+        "profileUrl": "../images/sample_img.webp",
+        "date": "1개월 전",
+        "likes": "976",
+        "content": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+        "replies": []
+    },
+    {
+        "username": "lotus-y",
+        "profileUrl": "../images/another_sample_img.webp",
+        "date": "5개월 전",
+        "likes": "543",
+        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Luptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "replies": []
+    },
+    {
+        "username": "another-lotus",
+        "profileUrl": "../images/another_sample_img.webp",
+        "date": "1년 전",
+        "likes": "303",
+        "content": "Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "replies": [
+            {
+                "username": "lotus-y",
+                "profileUrl": "../images/sample_img.webp",
+                "date": "1년 전",
+                "likes": "285",
+                "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit magna aliqua ut enim ad minim veniam."
+            },
+            {
+                "username": "random-cactusy",
+                "profileUrl": "../images/another_sample_img.webp",
+                "date": "11개월 전",
+                "likes": "349",
+                "content": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            },
+            {
+                "username": "another-lotus",
+                "profileUrl": "../images/another_sample_img.webp",
+                "date": "4개월 전",
+                "likes": "285",
+                "content": "Ut enim ad minim veniam, quis nostrud exercitation quis nostrud exercitation excepteur sint occaecat cupidatat non proident. onsectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            },
+            {
+                "username": "random-cactus",
+                "profileUrl": "../images/sample_img.webp",
+                "date": "2개월 전",
+                "likes": "29",
+                "content": "Aliquam rutrum ut neque a iaculis. Ut nec purus pharetra, vehicula tortor vel, finibus orci. Nulla sed nibh vel augue scelerisque tempus vel sed enim. Maecenas lectus ipsum, vehicula id ultrices vel, porttitor ac velit. Nullam ultricies molestie velit ut mattis. Sed sed sem tristique, pulvinar dui at, bibendum erat. Nulla ut sem eu tellus lacinia porta."
+            }
+        ]
+    }
+]
