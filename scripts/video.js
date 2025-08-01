@@ -112,7 +112,7 @@ function renderMainVideo(video) {
             document.getElementById('thumbsUpIcon').classList.add('bi-hand-thumbs-up-fill')
             isLikeButtonPressed = true
         }
-        
+
     })
 
     // views && date
@@ -139,6 +139,87 @@ function renderMainVideo(video) {
 function rederVideoComments(comments) {
     numComments = comments.length
     document.getElementById('commentCountText').innerText = `댓글 ${numComments}개`
+
+    // comment list rendering
+    const commentListContainer = document.getElementById('commentListContainer')
+    commentListContainer.innerHTML = ''
+    comments.forEach((comment, idx) => {
+        const replyListHTML = comment.replies.length > 0 ? getReplyListHTML(comment.replies, idx) : ''
+        const singleComment = document.createElement('div')
+        singleComment.className = 'mb-2'
+        singleComment.innerHTML = `
+            <div class="video-comment-profile d-flex">
+                <img src="${comment.profileUrl}" alt="Comment Profile Image" class="rounded-circle me-2" style="width: 40px; height: 40px;">
+                <div class="mx-1 py-0">
+                    <span class="comment-author slightly-bold" style="font-size: 13px;">${comment.username}</span>
+                    <span class="comment-date text-muted" style="font-size: 12px;">${comment.date}</span>
+                    <span class="comment-body d-block small-span">${comment.content}</span>
+                    <div class="like-dislike-btn-group d-flex align-items-center">
+                        <button class="btn btn-hover-gray rounded-circle p-0" type="button"><i class="bi bi-hand-thumbs-up"></i></button>
+                        <span class="text-muted ms-1 me-2" style="font-size: 12px;">${comment.likes}</span>
+                        <button class="btn btn-hover-gray rounded-circle p-0" type="button"><i class="bi bi-hand-thumbs-down"></i></button>
+                        <button class="btn btn-hover-gray rounded-pill" type="button"><span class="slightly-bold small-span">답글</span></button>
+                    </div>
+                    <!-- if reply exists -->
+                    ${replyListHTML}
+                    
+                </div>
+            </div>
+        `
+        
+        commentListContainer.appendChild(singleComment)
+
+        // reply list button receives event handler individually
+        const replyListButton = document.getElementById(`replyListButton${idx}`)
+        if(replyListButton) { 
+            replyListButton.addEventListener('click', () => {
+                const buttonIcon = document.getElementById(`replyButtonIcon${idx}`)
+                const replyListContainer = document.getElementById(`replyListContainer${idx}`)
+
+                if(buttonIcon.classList.contains('bi-chevron-down')) {
+                    // list is not shown yet
+                    buttonIcon.classList.remove('bi-chevron-down')
+                    buttonIcon.classList.add('bi-chevron-up')
+                    replyListContainer.style.display = 'block'
+                } else {
+                    // list already shown
+                    buttonIcon.classList.remove('bi-chevron-up')
+                    buttonIcon.classList.add('bi-chevron-down')
+                    replyListContainer.style.display = 'none'
+                }
+            }) 
+        }
+    })
+}
+
+function getReplyListHTML(replies, idx) {
+    let htmlString = `
+        <div>
+            <button class="btn btn-reply-list rounded-pill text-primary mt-0 py-0" type="button" id="replyListButton${idx}">
+                <i class="bi bi-chevron-down me-2" id="replyButtonIcon${idx}"></i><span class="small-span slightly-bold">답글 ${replies.length}개</span>
+            </button>
+            <div id="replyListContainer${idx}" class="mt-2" style="display: none;">
+    `
+    replies.forEach((reply) => {
+        htmlString = htmlString.concat(`
+                <div class="d-flex ms-2">
+                    <img src="${reply.profileUrl}" alt="Comment Profile Image" class="rounded-circle me-2" style="width: 24px; height: 24px;">
+                    <div class="mx-1 py-0">
+                        <span class="comment-author slightly-bold" style="font-size: 13px;">${reply.username}</span>
+                        <span class="comment-date text-muted" style="font-size: 12px;">${reply.date}</span>
+                        <span class="comment-body d-block small-span">${reply.content}</span>
+                        <div class="like-dislike-btn-group d-flex align-items-center">
+                            <button class="btn btn-hover-gray rounded-circle p-0" type="button"><i class="bi bi-hand-thumbs-up"></i></button>
+                            <span class="text-muted ms-1 me-2" style="font-size: 12px;">${reply.likes}</span>
+                            <button class="btn btn-hover-gray rounded-circle p-0" type="button"><i class="bi bi-hand-thumbs-down"></i></button>
+                            <button class="btn btn-hover-gray rounded-pill" type="button"><span class="slightly-bold small-span">답글</span></button>
+                        </div>
+                    </div>
+                </div>
+                `)
+    })
+    htmlString = htmlString.concat('</div></div>')
+    return htmlString
 }
 
 // recommended video list rendering
