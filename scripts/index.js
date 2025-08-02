@@ -1,6 +1,8 @@
 import { initNavbar } from "./navbar.js";
 import { shuffleArray, viewToString, dateToString} from './utils.js'
 
+let subscribed = ['침착맨', 'Apple', '비욘드 스포츠']
+
 // sidebar variables
 let isForcedCollapsed = false
 let isModalOpened = false
@@ -148,8 +150,15 @@ window.addEventListener('DOMContentLoaded', () => {
     fetch('../data/videos.json')
         .then(res => res.json())
         .then(videos => {
-            shuffleArray(videos)
-            renderVideoCards(videos)
+            if(window.location.pathname === '/html/index.html') {
+                shuffleArray(videos)
+                renderVideoCards(videos)
+            } else if(window.location.pathname === '/html/subscriptions.html') {
+                const filteredVideos = videos.filter(v => subscribed.includes(v.channel))
+                shuffleArray(filteredVideos)
+                renderVideoCards(filteredVideos)
+            }
+            
         })
     
     // navbar loading

@@ -40,7 +40,18 @@
 }
 
 .default-sidebar-link:hover {
-    background-color: #e5e5e5;
+    background-color: #f2f2f2;
+}
+
+.selected-sidebar-link {
+    padding: 8px 12px;
+    border-radius: 10px;
+    transition: background-color 0.2s;
+    background-color: #f2f2f2;
+}
+
+.selected-sidebar-link:hover {
+    background-color: #e6e6e6;
 }
 
 #collapsedSidebar {
@@ -57,7 +68,7 @@
 }
 
 .collapsed-sidebar-link:hover {
-    background-color: #e5e5e5;
+    background-color: #f2f2f2;
 }
 
 #btn-search {

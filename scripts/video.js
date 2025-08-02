@@ -47,7 +47,7 @@ function popMainVideo(videos, videoId) {
 
 // main video rendering
 function renderMainVideo(video) {
-    document.title = video.title
+    document.title = `${video.title} - YouTubeClone`
     const simplifiedViewAndDate = `조회수 ${viewToString(video.views)}\u00A0\u00A0${dateToString(video.uploadedDate)}`
     const expandedViewAndDate = `조회수 ${parseInt(video.views).toLocaleString('ko-KR')}회\u00A0\u00A0${video.uploadedDate}`
 
