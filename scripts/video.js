@@ -57,7 +57,7 @@ function renderMainVideo(video) {
         <iframe src="${video.videoUrl}" title="Test Video"
             allowfullscreen style="border-radius: 15px;"></iframe>
     `
-    /* now title, profile, description, likes should be implemented */
+
     const videoDescriptionContainer = document.getElementById('videoDescriptionContainer')
     videoDescriptionContainer.insertAdjacentHTML('afterbegin', `<h5 class="fw-bold">${video.title}</h5>`)
 
@@ -135,6 +135,35 @@ function renderMainVideo(video) {
     collapseButton.addEventListener('click', collapseDescriptionClickHandler)
 }
 
+// checking comment overflow
+function checkCommentOverflow(commentBodyId) {
+    const commentBody = document.getElementById(`commentBody-${commentBodyId}`)
+    console.log(commentBody)
+    if(commentBody.dataset.checked) { return }
+    else {
+        if(commentBody.scrollHeight > commentBody.clientHeight) {
+            const seeDetailButton = document.createElement('span')
+            seeDetailButton.classList.add('small-span', 'text-muted', 'd-block')
+            seeDetailButton.setAttribute('role', 'button')
+            seeDetailButton.innerText = '자세히 보기'
+
+            seeDetailButton.addEventListener('click', () => {
+                if(seeDetailButton.innerText === '자세히 보기') {
+                    commentBody.classList.remove('text-truncate-4-lines')
+                    seeDetailButton.innerText = '간략히'
+                } else if(seeDetailButton.innerText === '간략히') {
+                    commentBody.classList.add('text-truncate-4-lines')
+                    seeDetailButton.innerText = '자세히 보기'
+                }
+            })
+
+            const commentPosition = document.getElementById(`commentBodyContainer-${commentBodyId}`)
+            commentPosition.insertAdjacentElement('afterend', seeDetailButton)
+        }
+        commentBody.dataset.checked = true
+    }
+}
+
 // comments rendering
 function rederVideoComments(comments) {
     numComments = comments.length
@@ -144,7 +173,11 @@ function rederVideoComments(comments) {
     const commentListContainer = document.getElementById('commentListContainer')
     commentListContainer.innerHTML = ''
     comments.forEach((comment, idx) => {
-        const replyListHTML = comment.replies.length > 0 ? getReplyListHTML(comment.replies, idx) : ''
+        let replyListHTML = '';
+        let replyList = []
+        if(comment.replies.length > 0) { 
+            [replyListHTML, replyList] = getReplyListHTML(comment.replies, idx)
+        }
         const singleComment = document.createElement('div')
         singleComment.className = 'mb-2'
         singleComment.innerHTML = `
@@ -153,8 +186,10 @@ function rederVideoComments(comments) {
                 <div class="mx-1 py-0">
                     <span class="comment-author slightly-bold" style="font-size: 13px;">${comment.username}</span>
                     <span class="comment-date text-muted" style="font-size: 12px;">${comment.date}</span>
-                    <span class="comment-body d-block small-span">${comment.content}</span>
-                    <div class="like-dislike-btn-group d-flex align-items-center">
+                    <div id="commentBodyContainer-${idx}">
+                        <span class="comment-body small-span text-truncate-4-lines" id="commentBody-${idx}" style="max-height: 85px;">${comment.content}</span>
+                    </div>
+                    <div class="like-dislike-btn-group d-flex align-items-center" id="commentLikeButtonContainer">
                         <button class="btn btn-hover-gray rounded-circle p-0" type="button"><i class="bi bi-hand-thumbs-up"></i></button>
                         <span class="text-muted ms-1 me-2" style="font-size: 12px;">${comment.likes}</span>
                         <button class="btn btn-hover-gray rounded-circle p-0" type="button"><i class="bi bi-hand-thumbs-down"></i></button>
@@ -168,6 +203,7 @@ function rederVideoComments(comments) {
         `
         
         commentListContainer.appendChild(singleComment)
+        checkCommentOverflow(idx)
 
         // reply list button receives event handler individually
         const replyListButton = document.getElementById(`replyListButton${idx}`)
@@ -181,6 +217,7 @@ function rederVideoComments(comments) {
                     buttonIcon.classList.remove('bi-chevron-down')
                     buttonIcon.classList.add('bi-chevron-up')
                     replyListContainer.style.display = 'block'
+                    if(replyList.length > 0) { replyList.forEach((replyId) => { checkCommentOverflow(replyId) }) }
                 } else {
                     // list already shown
                     buttonIcon.classList.remove('bi-chevron-up')
@@ -193,6 +230,7 @@ function rederVideoComments(comments) {
 }
 
 function getReplyListHTML(replies, idx) {
+    let commentBodyIdArray = []
     let htmlString = `
         <div>
             <button class="btn btn-reply-list rounded-pill text-primary mt-0 py-0" type="button" id="replyListButton${idx}">
@@ -200,15 +238,18 @@ function getReplyListHTML(replies, idx) {
             </button>
             <div id="replyListContainer${idx}" class="mt-2" style="display: none;">
     `
-    replies.forEach((reply) => {
+    replies.forEach((reply, index) => {
+        commentBodyIdArray.push(`${idx}-${index}`)
         htmlString = htmlString.concat(`
                 <div class="d-flex ms-2">
                     <img src="${reply.profileUrl}" alt="Comment Profile Image" class="rounded-circle me-2" style="width: 24px; height: 24px;">
                     <div class="mx-1 py-0">
                         <span class="comment-author slightly-bold" style="font-size: 13px;">${reply.username}</span>
                         <span class="comment-date text-muted" style="font-size: 12px;">${reply.date}</span>
-                        <span class="comment-body d-block small-span">${reply.content}</span>
-                        <div class="like-dislike-btn-group d-flex align-items-center">
+                        <div id="commentBodyContainer-${idx}-${index}">
+                            <span class="comment-body small-span text-truncate-4-lines" id="commentBody-${idx}-${index}" style="max-height: 85px;">${reply.content}</span>
+                        </div>
+                        <div class="like-dislike-btn-group d-flex align-items-center " id="commentLikeButtonContainer">
                             <button class="btn btn-hover-gray rounded-circle p-0" type="button"><i class="bi bi-hand-thumbs-up"></i></button>
                             <span class="text-muted ms-1 me-2" style="font-size: 12px;">${reply.likes}</span>
                             <button class="btn btn-hover-gray rounded-circle p-0" type="button"><i class="bi bi-hand-thumbs-down"></i></button>
@@ -219,7 +260,7 @@ function getReplyListHTML(replies, idx) {
                 `)
     })
     htmlString = htmlString.concat('</div></div>')
-    return htmlString
+    return [htmlString, commentBodyIdArray]
 }
 
 // recommended video list rendering
@@ -352,8 +393,10 @@ function submitComment() {
             <div class="mx-1 py-0">
                 <span class="comment-author slightly-bold" style="font-size: 13px;">@cactus-y</span>
                 <span class="comment-date text-muted" style="font-size: 12px;">방금 전</span>
-                <span class="comment-body d-block small-span">${escapeHTML(content).replace(/\n/g, '<br>')}</span>
-                <div class="like-dislike-btn-group d-flex align-items-center">
+                <div id="commentBodyContainer-${numComments}">
+                    <span class="comment-body small-span text-truncate-4-lines" id="commentBody-${numComments}" style="max-height: 85px;">${escapeHTML(content).replace(/\n/g, '<br>')}</span>
+                </div>
+                <div class="like-dislike-btn-group d-flex align-items-center" id="commentLikeButtonContainer">
                     <button class="btn btn-hover-gray rounded-circle p-0" type="button"><i class="bi bi-hand-thumbs-up"></i></button>
                     <span class="text-muted ms-1 me-2" style="font-size: 12px;"></span>
                     <button class="btn btn-hover-gray rounded-circle p-0" type="button"><i class="bi bi-hand-thumbs-down"></i></button>
@@ -363,6 +406,7 @@ function submitComment() {
         </div>
         `
     document.getElementById('commentListContainer').prepend(singleComment)
+    checkCommentOverflow(numComments)
     closeComment()
     numComments += 1
     document.getElementById('commentCountText').innerText = `댓글 ${numComments}개`

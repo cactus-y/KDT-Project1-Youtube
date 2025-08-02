@@ -26,6 +26,13 @@
     overflow: hidden;
 }
 
+.text-truncate-4-lines {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
 #defaultSidebar {
     position: fixed;
     width: 240px;
