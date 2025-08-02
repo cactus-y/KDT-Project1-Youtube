@@ -154,6 +154,7 @@ window.addEventListener('DOMContentLoaded', () => {
     
     // navbar loading
     initNavbar(handleSidebarToggle)
+    updateResponsiveLayout()
 }) 
 
 window.addEventListener('resize', updateResponsiveLayout)
