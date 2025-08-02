@@ -9,6 +9,69 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 </head>
 <style>
+    #recommendedVideoListContainer {
+        width: 402px;
+        flex-shrink: 0;
+    }
+
+    .video-buttons {
+        flex-wrap: wrap;
+    }
+    
+    
+    /* video button responsive setting */
+    
+    
+    
+    @media(max-width: 1340px) {
+        #offlineSaveButton {
+            display: none;
+        }
+    }
+    @media(max-width: 1545px) {
+        #thanksButton {
+            display: none;
+        }
+    }
+    @media(max-width: 1720px) {
+        #bookmarkButton {
+            display: none;
+        }
+    }
+    @media(max-width: 1055px) {
+        #offlineSaveButton {
+            display: block;
+        }
+        #recommendedVideoListContainer {
+            display: none;
+        }
+    }
+    @media(max-width: 900px) {
+        #offlineSaveButton {
+            display: none;
+        }
+    }
+    @media(max-width: 700px) {
+        .video-btn-group {
+            flex-basis: 100%;
+        }
+        #offlineSaveButton,
+        #thanksButton,
+        #bookmarkButton {
+            display: block;
+        }
+    }
+    @media(max-width: 670px) {
+        #bookmarkButton {
+            display: none;
+        }
+    }
+    @media(max-width: 585px) {
+        #thanksButton {
+            display: none;
+        }
+    }
+
     .btn.btn-not-subscribed {
         background-color: black;
     }
@@ -69,10 +132,10 @@
 <body id="page-video">
     <!-- navbar -->
     <div id="navbar"></div>
-    <div class="container-fluid mt-4">
-        <div class="row justify-content-center">
+    <div class="container-fluid ">
+        <div class="d-flex justify-content-center ">
             <!-- main section -->
-            <main class="col-12 col-lg-8 col-xl-8 me-3">
+            <main class="flex-grow-1 me-2 me-lg-4 ps-2 ps-xl-5  ms-2 ms-xl-4" id="mainContainer">
                 <!-- video section -->
                 <div class="main-video ratio ratio-16x9" id="mainVideoIframeContainer">
                 </div>
@@ -93,16 +156,16 @@
                                 <div class="divider my-2" style="width: 1px; background: #ccc;"></div>
                                     <button class="btn btn-gray rounded-end-pill" type="button"><i class="bi bi-hand-thumbs-down"></i></button>
                                 </div>
-                                <button class="btn btn-gray rounded-pill me-2" type="button">
+                                <button class="btn btn-gray btn-video rounded-pill me-2" type="button">
                                     <i class="bi bi-box-arrow-up-right me-2"></i><span class="small-span">공유</span>
                                 </button>
-                                <button class="btn btn-gray rounded-pill d-none d-md-block me-2" type="button">
+                                <button id="offlineSaveButton" class="btn btn-gray btn-video rounded-pill me-2" type="button">
                                     <i class="bi bi-download me-2"></i><span class="small-span">오프라인 저장</span>
                                 </button>
-                                <button class="btn btn-gray rounded-pill d-none d-lg-block me-2" type="button">
+                                <button id="thanksButton" class="btn btn-gray btn-video rounded-pill me-2" type="button">
                                     <i class="bi bi-cash-coin me-2"></i><span class="small-span">Thanks</span>
                                 </button>
-                                <button class="btn btn-gray rounded-pill d-none d-xl-block me-2" type="button">
+                                <button id="bookmarkButton" class="btn btn-gray btn-video rounded-pill me-2" type="button">
                                     <i class="bi bi-bookmark me-2"></i><span class="small-span">저장</span>
                                 </button>
                                 <button class="btn btn-gray rounded-pill" type="button"><i class="bi bi-three-dots"></i></button>
@@ -155,8 +218,8 @@
                 </div>
             </main>
 
-            <!-- right side bar -->
-            <aside class="col-lg-3 d-none d-lg-block" id="recommendedVideoListContainer">
+            <!-- recommended videos list -->
+            <aside class="me-5 me-lg-4 me-md-3" id="recommendedVideoListContainer">
             </aside>
         </div>
     </div>
