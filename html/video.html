@@ -12,6 +12,15 @@
     #recommendedVideoListContainer {
         width: 402px;
         flex-shrink: 0;
+        display: block;
+    }
+
+    #recommendedSmallScreenContainer {
+        display: none;
+    }
+    #recommendedSmallScreenContainer .col {
+        flex: 0 0 auto;
+        width: 100%;
     }
 
     .video-buttons {
@@ -20,9 +29,6 @@
     
     
     /* video button responsive setting */
-    
-    
-    
     @media(max-width: 1340px) {
         #offlineSaveButton {
             display: none;
@@ -45,8 +51,17 @@
         #recommendedVideoListContainer {
             display: none;
         }
+        #recommendedSmallScreenContainer {
+            display: flex;
+        }
+        #recommendedSmallScreenContainer .col {
+            width: 33.333333%;
+        }
     }
-    @media(max-width: 900px) {
+    @media(max-width: 935px) {
+        #recommendedSmallScreenContainer .col {
+            width: 50%;
+        }
         #offlineSaveButton {
             display: none;
         }
@@ -61,9 +76,13 @@
             display: block;
         }
     }
+    
     @media(max-width: 670px) {
         #bookmarkButton {
             display: none;
+        }
+        #recommendedSmallScreenContainer .col {
+            width: 100%;
         }
     }
     @media(max-width: 585px) {
@@ -179,6 +198,8 @@
                             <span id="collapseDescriptionButton" role="button" class="slightly-bold small-span" style="display: none;">간략히</span>
                         </div>
                 </div>
+
+                <div id="recommendedSmallScreenContainer" class="row g-3 mt-4" ></div>
 
                 <!-- video comment section -->
                 <div class="video-comment-container mt-3">
