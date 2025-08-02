@@ -46,3 +46,9 @@ export function dateToString(date) {
     const yearDiff = Math.floor(monthDiff / 12)
     return `${yearDiff}년 전`
 }
+
+export function escapeHTML(str) {
+    return str.replace(/[&<>"']/g, match => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;'
+    }[match]))
+}

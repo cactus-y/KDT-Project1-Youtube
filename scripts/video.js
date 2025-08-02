@@ -1,5 +1,5 @@
 import { initNavbar } from "./navbar.js";
-import { shuffleArray, viewToString, dateToString} from './utils.js'
+import { shuffleArray, viewToString, dateToString, escapeHTML } from './utils.js'
 
 // some variables
 let sidebarModalView = null
@@ -337,12 +337,6 @@ function closeComment() {
     dummyCommentInputContainer.classList.add('d-block')
     document.getElementById('realCommentTextArea').value = ''
     document.getElementById('submitCommentButton').disabled = true
-}
-
-function escapeHTML(str) {
-    return str.replace(/[&<>"']/g, match => ({
-        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;'
-    }[match]))
 }
 
 // submit comment
