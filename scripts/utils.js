@@ -102,7 +102,7 @@ export function getHorizontalVideoCardHTML(video, mode) {
                         <img src="${video.profileImgLink}" class="rounded-circle me-2" alt="Channel Thumbnail" style="width: 24px; height: 24px;">
                         <span class="text-muted text-truncate-1-lines" style="font-size: 12px;">${video.channel}</span><br>
                     </a>
-                    <span class="d-block text-muted text-truncate-1-lines" style="font-size: 12px; max-width: 730px;">${video.description}</span>
+                    <span class="d-block text-muted text-truncate-1-lines mt-1" style="font-size: 12px; max-width: 730px;">${video.description}</span>
                 </div>
             `
         }

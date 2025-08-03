@@ -167,7 +167,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 if(!query) {
                     renderHorizontalVideoCards([])
                 }
-
+                document.title = `${query} - YouTubeClone`
                 const filteredVideos = videos.filter(v => v.title.includes(query) || v.channel.includes(query) )
                 renderHorizontalVideoCards(filteredVideos)
             }
