@@ -1,5 +1,5 @@
 import { initNavbar } from "./navbar.js";
-import { shuffleArray, viewToString, dateToString, escapeHTML } from './utils.js'
+import { shuffleArray, viewToString, dateToString, escapeHTML, getCommentHTML, getVideoCardHTML, getHorizontalVideoCardHTML } from './utils.js'
 
 // some variables
 let sidebarModalView = null
@@ -155,12 +155,11 @@ function renderMainVideo(video) {
 // checking comment overflow
 function checkCommentOverflow(commentBodyId) {
     const commentBody = document.getElementById(`commentBody-${commentBodyId}`)
-    console.log(commentBody)
     if(commentBody.dataset.checked) { return }
     else {
         if(commentBody.scrollHeight > commentBody.clientHeight) {
             const seeDetailButton = document.createElement('span')
-            seeDetailButton.classList.add('small-span', 'text-muted', 'd-block')
+            seeDetailButton.classList.add('small-span', 'text-muted', 'd-inline-block')
             seeDetailButton.setAttribute('role', 'button')
             seeDetailButton.innerText = '자세히 보기'
 
@@ -199,27 +198,12 @@ function rederVideoComments(comments) {
         singleComment.className = 'mb-2'
         singleComment.innerHTML = `
             <div class="video-comment-profile d-flex">
-                <img src="${comment.profileUrl}" alt="Comment Profile Image" class="rounded-circle me-2" style="width: 40px; height: 40px;">
-                <div class="mx-1 py-0">
-                    <span class="comment-author slightly-bold" style="font-size: 13px;">${comment.username}</span>
-                    <span class="comment-date text-muted" style="font-size: 12px;">${comment.date}</span>
-                    <div id="commentBodyContainer-${idx}">
-                        <span class="comment-body small-span text-truncate-4-lines" id="commentBody-${idx}" style="max-height: 85px;">${comment.content}</span>
-                    </div>
-                    <div class="like-dislike-btn-group d-flex align-items-center" id="commentLikeButtonContainer">
-                        <button class="btn btn-hover-gray rounded-circle p-0" type="button"><i class="bi bi-hand-thumbs-up"></i></button>
-                        <span class="text-muted ms-1 me-2" style="font-size: 12px;">${comment.likes}</span>
-                        <button class="btn btn-hover-gray rounded-circle p-0" type="button"><i class="bi bi-hand-thumbs-down"></i></button>
-                        <button class="btn btn-hover-gray rounded-pill" type="button"><span class="slightly-bold small-span">답글</span></button>
-                    </div>
-                    <!-- if reply exists -->
-                    ${replyListHTML}
-                    
-                </div>
+                ${getCommentHTML(comment, idx, 40)}
             </div>
         `
         
         commentListContainer.appendChild(singleComment)
+        document.getElementById(`commentDetailContainer-${idx}`).insertAdjacentHTML('beforeend', replyListHTML)
         checkCommentOverflow(idx)
 
         // reply list button receives event handler individually
@@ -259,20 +243,7 @@ function getReplyListHTML(replies, idx) {
         commentBodyIdArray.push(`${idx}-${index}`)
         htmlString = htmlString.concat(`
                 <div class="d-flex ms-2">
-                    <img src="${reply.profileUrl}" alt="Comment Profile Image" class="rounded-circle me-2" style="width: 24px; height: 24px;">
-                    <div class="mx-1 py-0">
-                        <span class="comment-author slightly-bold" style="font-size: 13px;">${reply.username}</span>
-                        <span class="comment-date text-muted" style="font-size: 12px;">${reply.date}</span>
-                        <div id="commentBodyContainer-${idx}-${index}">
-                            <span class="comment-body small-span text-truncate-4-lines" id="commentBody-${idx}-${index}" style="max-height: 85px;">${reply.content}</span>
-                        </div>
-                        <div class="like-dislike-btn-group d-flex align-items-center " id="commentLikeButtonContainer">
-                            <button class="btn btn-hover-gray rounded-circle p-0" type="button"><i class="bi bi-hand-thumbs-up"></i></button>
-                            <span class="text-muted ms-1 me-2" style="font-size: 12px;">${reply.likes}</span>
-                            <button class="btn btn-hover-gray rounded-circle p-0" type="button"><i class="bi bi-hand-thumbs-down"></i></button>
-                            <button class="btn btn-hover-gray rounded-pill" type="button"><span class="slightly-bold small-span">답글</span></button>
-                        </div>
-                    </div>
+                    ${getCommentHTML(reply, `${idx}-${index}`, 24)}
                 </div>
                 `)
     })
@@ -291,50 +262,13 @@ function renderRecommendedVideoList(videos) {
         // for default container
         const recommendedVideo = document.createElement('div')
         recommendedVideo.className = 'mb-2'
-        recommendedVideo.innerHTML = `
-            <div class="recommend-video-card align-items-start w-100">
-                <div role="button" onclick="window.location.href='./video.html?videoId=${video.id}'" class="text-decoration-none text-black">
-                    <div class="d-flex">
-                        <img src="${video.thumbnail}" alt="Video Thumbnail" class="rounded me-2 flex-shrink-0" width="168" height="94">
-                        <div class="video-text-group flex-grow-1">
-                            <span class="video-title text-truncate-2-lines slightly-bold small-span">${video.title}</span>
-                            <span class="text-muted text-truncate-1-lines" style="font-size: 12px;">${video.channel}</span><br>
-                            <span class="text-muted text-truncate-1-lines" style="font-size: 12px;">조회수 ${viewToString(video.views)} · ${dateToString(video.uploadedDate)}</span>
-                        </div>
-                        <div class="position-relative" onclick="event.stopPropagation();">
-                            <button id="recommendedVideoDropdownButton" class="btn btn-hover-gray rounded-circle p-0 top-0 end-0 px-1" type="button"><i class="bi bi-three-dots-vertical"></i></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        `
+        recommendedVideo.innerHTML = getHorizontalVideoCardHTML(video)
         container.appendChild(recommendedVideo)
 
         // for small size screen
         const smallRecommended = document.createElement('div')
         smallRecommended.className = 'col'
-        smallRecommended.innerHTML = `
-            <div class="card border-0 video-card" role="button" onclick="window.location.href='./video.html?videoId=${video.id}'">
-                <img src="${video.thumbnail}" class="card-img-top rounded" alt="Thumbnail">
-                <div class="card-body p-2 pe-0 d-flex">
-                    <a href="${video.channelLink}" class="me-1" onclick="event.stopPropagation();">
-                        <img src="${video.profileImgLink}" class="rounded-circle me-2" alt="Channel Thumbnail" style="width: 36px; height: 36px;">
-                    </a>
-                    <div>
-                        <a href="./video.html?videoId=${video.id}" class="text-decoration-none text-dark">
-                            <span class="card-title mb-0 d-block slightly-bold text-truncate-2-lines" style="max-height: 50px;">${video.title}</span>
-                        </a>
-                        <a href="${video.channelLink}" class="text-decoration-none text-dark" onclick="event.stopPropagation();">
-                            <span class="card-text text-muted mb-0 small-span">${video.channel}</span>
-                        </a>
-                        <span class="card-text text-muted d-block small-span">조회수 ${viewToString(video.views)} · ${dateToString(video.uploadedDate)}</span>
-                    </div>
-                    <div class="position-relative ms-auto" onclick="event.stopPropagation();">
-                        <button id="smallRecommendedVideoDropdownButton" class="btn rounded-circle p-0 top-0 end-0" type="button"><i class="bi bi-three-dots-vertical"></i></button>
-                    </div>
-                </div>
-            </div>
-        `
+        smallRecommended.innerHTML = getVideoCardHTML(video)
         smallContainer.appendChild(smallRecommended)
     })
 }
@@ -402,26 +336,20 @@ function submitComment() {
     const content = document.getElementById('realCommentTextArea').value.trim()
     if(!content) return
 
+    const commentObject = {
+        'profileUrl': '../images/sample_img.webp',
+        'username': '@cactus-y',
+        'date': '방금 전',
+        'content': escapeHTML(content).replace(/\n/g, '<br>'),
+        'likes': ''
+    }
     const singleComment = document.createElement('div')
     singleComment.className = 'mb-2'
     singleComment.innerHTML = `
         <div class="video-comment-profile d-flex">
-            <img src="../images/sample_img.webp" alt="Comment Profile Image" class="rounded-circle me-2" style="width: 40px; height: 40px;">
-            <div class="mx-1 py-0">
-                <span class="comment-author slightly-bold" style="font-size: 13px;">@cactus-y</span>
-                <span class="comment-date text-muted" style="font-size: 12px;">방금 전</span>
-                <div id="commentBodyContainer-${numComments}">
-                    <span class="comment-body small-span text-truncate-4-lines" id="commentBody-${numComments}" style="max-height: 85px;">${escapeHTML(content).replace(/\n/g, '<br>')}</span>
-                </div>
-                <div class="like-dislike-btn-group d-flex align-items-center" id="commentLikeButtonContainer">
-                    <button class="btn btn-hover-gray rounded-circle p-0" type="button"><i class="bi bi-hand-thumbs-up"></i></button>
-                    <span class="text-muted ms-1 me-2" style="font-size: 12px;"></span>
-                    <button class="btn btn-hover-gray rounded-circle p-0" type="button"><i class="bi bi-hand-thumbs-down"></i></button>
-                    <button class="btn btn-hover-gray rounded-pill" type="button"><span class="slightly-bold small-span">답글</span></button>
-                </div>
-            </div>
+            ${getCommentHTML(commentObject, numComments, 40)}
         </div>
-        `
+    `
     document.getElementById('commentListContainer').prepend(singleComment)
     checkCommentOverflow(numComments)
     closeComment()
