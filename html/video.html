@@ -173,7 +173,7 @@
                                     <i class="bi bi-hand-thumbs-up me-2" id="thumbsUpIcon"></i><span class="small-span" id="videoLikeNum"></span>
                                 </button>
                                 <div class="divider my-2" style="width: 1px; background: #ccc;"></div>
-                                    <button class="btn btn-gray rounded-end-pill" type="button"><i class="bi bi-hand-thumbs-down"></i></button>
+                                    <button class="btn btn-gray rounded-end-pill" type="button" id="videoDislikeButton"><i class="bi bi-hand-thumbs-down" id="thumbsDownIcon"></i></button>
                                 </div>
                                 <button class="btn btn-gray btn-video rounded-pill me-2" type="button">
                                     <i class="bi bi-box-arrow-up-right me-2"></i><span class="small-span">공유</span>
@@ -194,7 +194,7 @@
                         <!-- video description section -->
                         <div id="videoDescriptionBox" class="my-2 mb-2 px-3 py-2 " role="button" style="background-color: #f2f2f2; border-radius: 12px; pointer-events: auto;">
                             <span class="fw-semibold small-span d-block" id="viewsAndDateText"></span>
-                            <span class="small-span text-truncate-3-lines" id="videoDescriptionText" style="height: 65px;"></span>
+                            <span class="small-span text-truncate-3-lines" id="videoDescriptionText" style="max-height: 65px;"></span>
                             <span id="collapseDescriptionButton" role="button" class="slightly-bold small-span" style="display: none;">간략히</span>
                         </div>
                 </div>

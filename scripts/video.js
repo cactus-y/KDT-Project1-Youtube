@@ -5,7 +5,6 @@ import { shuffleArray, viewToString, dateToString, escapeHTML } from './utils.js
 let sidebarModalView = null
 let numComments = -1
 let isDescriptionExpanded = false
-let isLikeButtonPressed = false
 let expandDescriptionClickHandler = null
 let collapseDescriptionClickHandler = null
 
@@ -103,16 +102,34 @@ function renderMainVideo(video) {
     // likes
     document.getElementById('videoLikeNum').innerText = video.likes
     document.getElementById('videoLikeButton').addEventListener('click', () => {
-        if(isLikeButtonPressed) {
-            document.getElementById('thumbsUpIcon').classList.remove('bi-hand-thumbs-up-fill')
-            document.getElementById('thumbsUpIcon').classList.add('bi-hand-thumbs-up')
-            isLikeButtonPressed = false
-        } else {
-            document.getElementById('thumbsUpIcon').classList.remove('bi-hand-thumbs-up')
-            document.getElementById('thumbsUpIcon').classList.add('bi-hand-thumbs-up-fill')
-            isLikeButtonPressed = true
+        const thumbsUpIcon = document.getElementById('thumbsUpIcon')
+        const thumbsDownIcon = document.getElementById('thumbsDownIcon')
+        if(thumbsUpIcon.classList.contains('bi-hand-thumbs-up')) {
+            if(thumbsDownIcon.classList.contains('bi-hand-thumbs-down-fill')) {
+                thumbsDownIcon.classList.remove('bi-hand-thumbs-down-fill')
+                thumbsDownIcon.classList.add('bi-hand-thumbs-down')
+            }
+            thumbsUpIcon.classList.remove('bi-hand-thumbs-up')
+            thumbsUpIcon.classList.add('bi-hand-thumbs-up-fill')
+        } else if(thumbsUpIcon.classList.contains('bi-hand-thumbs-up-fill')) {
+            thumbsUpIcon.classList.remove('bi-hand-thumbs-up-fill')
+            thumbsUpIcon.classList.add('bi-hand-thumbs-up')
         }
-
+    })
+    document.getElementById('videoDislikeButton').addEventListener('click', () => {
+        const thumbsUpIcon = document.getElementById('thumbsUpIcon')
+        const thumbsDownIcon = document.getElementById('thumbsDownIcon')
+        if(thumbsDownIcon.classList.contains('bi-hand-thumbs-down')) {
+            if(thumbsUpIcon.classList.contains('bi-hand-thumbs-up-fill')) {
+                thumbsUpIcon.classList.remove('bi-hand-thumbs-up-fill')
+                thumbsUpIcon.classList.add('bi-hand-thumbs-up')
+            }
+            thumbsDownIcon.classList.remove('bi-hand-thumbs-down')
+            thumbsDownIcon.classList.add('bi-hand-thumbs-down-fill')
+        } else if(thumbsDownIcon.classList.contains('bi-hand-thumbs-down-fill')) {
+            thumbsDownIcon.classList.remove('bi-hand-thumbs-down-fill')
+            thumbsDownIcon.classList.add('bi-hand-thumbs-down')
+        }
     })
 
     // views && date
@@ -276,7 +293,7 @@ function renderRecommendedVideoList(videos) {
         recommendedVideo.className = 'mb-2'
         recommendedVideo.innerHTML = `
             <div class="recommend-video-card align-items-start w-100">
-                <a href="./video.html?videoId=${video.id}" class="text-decoration-none text-black">
+                <div role="button" onclick="window.location.href='./video.html?videoId=${video.id}'" class="text-decoration-none text-black">
                     <div class="d-flex">
                         <img src="${video.thumbnail}" alt="Video Thumbnail" class="rounded me-2 flex-shrink-0" width="168" height="94">
                         <div class="video-text-group flex-grow-1">
@@ -284,11 +301,11 @@ function renderRecommendedVideoList(videos) {
                             <span class="text-muted text-truncate-1-lines" style="font-size: 12px;">${video.channel}</span><br>
                             <span class="text-muted text-truncate-1-lines" style="font-size: 12px;">조회수 ${viewToString(video.views)} · ${dateToString(video.uploadedDate)}</span>
                         </div>
-                        <div class="position-relative">
-                            <button class="btn btn-hover-gray rounded-circle p-0 top-0 end-0 px-1" type="button"><i class="bi bi-three-dots-vertical"></i></button>
+                        <div class="position-relative" onclick="event.stopPropagation();">
+                            <button id="recommendedVideoDropdownButton" class="btn btn-hover-gray rounded-circle p-0 top-0 end-0 px-1" type="button"><i class="bi bi-three-dots-vertical"></i></button>
                         </div>
                     </div>
-                </a>
+                </div>
             </div>
         `
         container.appendChild(recommendedVideo)
@@ -313,7 +330,7 @@ function renderRecommendedVideoList(videos) {
                         <span class="card-text text-muted d-block small-span">조회수 ${viewToString(video.views)} · ${dateToString(video.uploadedDate)}</span>
                     </div>
                     <div class="position-relative ms-auto" onclick="event.stopPropagation();">
-                        <button class="btn rounded-circle p-0 top-0 end-0" type="button"><i class="bi bi-three-dots-vertical"></i></button>
+                        <button id="smallRecommendedVideoDropdownButton" class="btn rounded-circle p-0 top-0 end-0" type="button"><i class="bi bi-three-dots-vertical"></i></button>
                     </div>
                 </div>
             </div>
