@@ -12,13 +12,13 @@
         <!-- search bar -->
         <div class="center flex-grow-1 d-flex justify-content-center mx-3" style="min-width: 0;">
             <form class="d-flex align-items-center position-relative w-100 d-none d-md-inline-flex" role="search" style="max-width: 600px;"
-                onsubmit="">
+                onsubmit="" id="searchForm">
                 <!-- input -->
-                <input class="form-control border-secondary rounded-start-pill border-end-0 d-none d-md-block" type="text"
+                <input class="form-control border-secondary rounded-start-pill d-none d-md-block" type="text"
                         placeholder="검색" name="query" id="searchInput">
 
                 <!-- search button -->
-                <button id="btn-search" class="btn border-secondary rounded-end-pill px-4 d-none d-md-inline-flex" type="submit">
+                <button id="searchButton" class="btn border-secondary rounded-end-pill px-4 border-start-0 d-none d-md-inline-flex" type="submit">
                     <i class="bi bi-search"></i>
                 </button>
 

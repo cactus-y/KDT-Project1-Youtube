@@ -80,18 +80,37 @@ export function getVideoCardHTML(video) {
     } else { return '' }
 }
 
-export function getHorizontalVideoCardHTML(video) {
+export function getHorizontalVideoCardHTML(video, mode) {
     if(video) {
+        let videoDetail = ''
+        if(mode == 'recommend') {
+            videoDetail = `
+                <img src="${video.thumbnail}" alt="Video Thumbnail" class="rounded me-2 flex-shrink-0" width="168px" height="92px">
+                <div class="video-text-group">
+                    <span class="video-title text-truncate-2-lines slightly-bold small-span">${video.title}</span>
+                    <span class="text-muted text-truncate-1-lines" style="font-size: 12px;">${video.channel}</span><br>
+                    <span class="text-muted text-truncate-1-lines" style="font-size: 12px;">조회수 ${viewToString(video.views)} · ${dateToString(video.uploadedDate)}</span>
+                </div>
+            `
+        } else if(mode == 'search') {
+            videoDetail = `
+                <img src="${video.thumbnail}" alt="Video Thumbnail" class="rounded me-2 flex-shrink-1" width="500px">
+                <div class="video-text-group ">
+                    <span class="video-title text-truncate-2-lines" style="font-size: 18px;">${video.title}</span>
+                    <span class="text-muted text-truncate-1-lines" style="font-size: 12px;">조회수 ${viewToString(video.views)} · ${dateToString(video.uploadedDate)}</span><br>
+                    <a href="${video.channelLink}" class="text-decoration-none" onclick="stopPropagation();">
+                        <img src="${video.profileImgLink}" class="rounded-circle me-2" alt="Channel Thumbnail" style="width: 24px; height: 24px;">
+                        <span class="text-muted text-truncate-1-lines" style="font-size: 12px;">${video.channel}</span><br>
+                    </a>
+                    <span class="d-block text-muted text-truncate-1-lines" style="font-size: 12px; max-width: 730px;">${video.description}</span>
+                </div>
+            `
+        }
         return `
-            <div class="recommend-video-card align-items-start w-100">
+            <div class="horizontal-video-card align-items-start w-100">
                 <div role="button" onclick="window.location.href='./video.html?videoId=${video.id}'" class="text-decoration-none text-black">
                     <div class="d-flex">
-                        <img src="${video.thumbnail}" alt="Video Thumbnail" class="rounded me-2 flex-shrink-0" width="168" height="94">
-                        <div class="video-text-group flex-grow-1">
-                            <span class="video-title text-truncate-2-lines slightly-bold small-span">${video.title}</span>
-                            <span class="text-muted text-truncate-1-lines" style="font-size: 12px;">${video.channel}</span><br>
-                            <span class="text-muted text-truncate-1-lines" style="font-size: 12px;">조회수 ${viewToString(video.views)} · ${dateToString(video.uploadedDate)}</span>
-                        </div>
+                        ${videoDetail}
                         <div class="position-relative" onclick="event.stopPropagation();">
                             <button id="recommendedVideoDropdownButton" class="btn btn-hover-gray rounded-circle p-0 top-0 end-0 px-1" type="button"><i class="bi bi-three-dots-vertical"></i></button>
                         </div>

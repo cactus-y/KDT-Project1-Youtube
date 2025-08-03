@@ -3,45 +3,13 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>YouTubeClone</title>
+    <title>검색</title>
     <link rel="stylesheet" href="../css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 </head>
 <!-- temporal css styling -->
 <style>
-    /* card container responsive settings */
-    #videoCardContainer .col {
-        flex: 0 0 auto;
-        width: 100%;
-    }
-    @media(min-width: 585px) {
-        #videoCardContainer .col {
-            width: 50%;
-        }
-    }
-    @media(min-width: 960px) {
-        #videoCardContainer .col {
-            width: 33.333333%;
-        }
-    }
-    @media(min-width: 1840px) {
-        body.sidebar-collapsed #videoCardContainer .col {
-            width: 25%;
-        }
-    }
-
-    /* video-card animation setting */
-    .video-card {
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .video-card:hover {
-        transform: scale(1.05) translateY(-5px);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-        z-index: 10;
-    }
-
     body.dropdown-open .video-card:hover {
         transform: none;
         box-shadow: none;
@@ -57,8 +25,8 @@
             <!-- sidebar -->
             <aside id="defaultSidebar" class="bg-white p-2" style="display: block;">
                 <!-- main sidebar items -->
-                <div role="button" onclick="window.location.href='./index.html'" class="selected-sidebar-link d-flex align-items-center w-100 text-decoration-none text-dark">
-                    <i class="bi bi-house-fill fs-4 me-3"></i> <span class="small-span">홈</span>
+                <div role="button" onclick="window.location.href='./index.html'" class="default-sidebar-link d-flex align-items-center w-100 text-decoration-none text-dark">
+                    <i class="bi bi-house fs-4 me-3"></i> <span class="small-span">홈</span>
                 </div>
                 <div role="button" class="default-sidebar-link d-flex align-items-center w-100 text-decoration-none text-dark">
                     <i class="bi bi-lightning fs-4 me-3"></i> <span class="small-span">Shorts</span>
@@ -113,7 +81,7 @@
             <!-- collapsed sidebar (default: hidden) -->
             <aside id="collapsedSidebar" class="bg-white" style="padding-left: 3px; display: none;">
                 <div role="button" onclick="window.location.href='./index.html'" class="collapsed-sidebar-link d-flex flex-column align-items-center w-100 text-center text-decoration-none text-dark rounded">
-                    <i class="bi bi-house-fill fs-4"></i> <span class="d-block" style="font-size: 10px;">홈</span>
+                    <i class="bi bi-house fs-4"></i> <span class="d-block" style="font-size: 10px;">홈</span>
                 </div>
                 <div role="button" class="collapsed-sidebar-link d-flex flex-column align-items-center w-100 text-center text-decoration-none text-dark rounded">
                     <i class="bi bi-lightning fs-4"></i> <span class="d-block" style="font-size: 10px;">Shorts</span>
@@ -135,7 +103,7 @@
             
             <!-- main section -->
             <main class="flex-grow-1 p-3" id="mainContent" style="margin-left: 240px;">
-                <div class="row g-3" id="videoCardContainer"></div>
+                <div class="align-items-center justify-content-center" id="searchedVideoCardContainer"></div>
             </main>
         </div>
 

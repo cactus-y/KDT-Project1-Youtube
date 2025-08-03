@@ -33,6 +33,11 @@
     overflow: hidden;
 }
 
+#searchInput:focus {
+    z-index: 3;
+    border: 1px solid #1c62b9;
+}
+
 #defaultSidebar {
     position: fixed;
     width: 240px;

@@ -262,7 +262,7 @@ function renderRecommendedVideoList(videos) {
         // for default container
         const recommendedVideo = document.createElement('div')
         recommendedVideo.className = 'mb-2'
-        recommendedVideo.innerHTML = getHorizontalVideoCardHTML(video)
+        recommendedVideo.innerHTML = getHorizontalVideoCardHTML(video, 'recommend')
         container.appendChild(recommendedVideo)
 
         // for small size screen

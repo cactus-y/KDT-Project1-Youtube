@@ -1,5 +1,5 @@
 import { initNavbar } from "./navbar.js";
-import { shuffleArray, getVideoCardHTML } from './utils.js'
+import { shuffleArray, getVideoCardHTML, getHorizontalVideoCardHTML } from './utils.js'
 
 let subscribed = ['침착맨', 'Apple', '비욘드 스포츠']
 
@@ -20,6 +20,33 @@ function renderVideoCards(videos) {
         videoCard.innerHTML = getVideoCardHTML(video)
         container.appendChild(videoCard)
     })
+}
+
+// horizontal video card rendering function
+function renderHorizontalVideoCards(videos) {
+    const container = document.getElementById('searchedVideoCardContainer')
+    container.innerHTML = ''
+
+    if(videos.length > 0) {
+        videos.forEach((video) => {
+            const horizontalVideoCard = document.createElement('div')
+            horizontalVideoCard.classList.add('horizontal-video-card-container', 'mb-3')
+            horizontalVideoCard.style.marginLeft = '150px'
+            horizontalVideoCard.style.marginRight = '200px'
+            horizontalVideoCard.innerHTML = getHorizontalVideoCardHTML(video, 'search')
+            container.appendChild(horizontalVideoCard)
+        })
+        
+    } else {
+        // empty result
+        const emptyContainer = document.createElement('div')
+        emptyContainer.classList.add('horizontal-video-card-container', 'mb-3')
+        emptyContainer.innerHTML = `
+            <span style="font-size: 24px; display:block;">검색결과가 없습니다.</span>
+            <span style="font-size: 14px;">다른 검색어를 시도해 보거나 검색 필터를 삭제하세요.</span>
+        `
+        container.appendChild(emptyContainer)
+    }
 }
 
 // functions for responsive layout
@@ -134,8 +161,16 @@ window.addEventListener('DOMContentLoaded', () => {
                 const filteredVideos = videos.filter(v => subscribed.includes(v.channel))
                 shuffleArray(filteredVideos)
                 renderVideoCards(filteredVideos)
+            } else if(window.location.pathname === '/html/search.html') {
+                const query = new URLSearchParams(window.location.search).get('search_query')?.trim()
+
+                if(!query) {
+                    renderHorizontalVideoCards([])
+                }
+
+                const filteredVideos = videos.filter(v => v.title.includes(query) || v.channel.includes(query) )
+                renderHorizontalVideoCards(filteredVideos)
             }
-            
         })
     
     // navbar loading
