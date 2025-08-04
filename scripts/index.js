@@ -162,13 +162,16 @@ window.addEventListener('DOMContentLoaded', () => {
                 shuffleArray(filteredVideos)
                 renderVideoCards(filteredVideos)
             } else if(window.location.pathname === '/html/search.html') {
-                const query = new URLSearchParams(window.location.search).get('search_query')?.trim()
+                const query = new URLSearchParams(window.location.search).get('search_query')?.trim().toLowerCase()
 
                 if(!query) {
                     renderHorizontalVideoCards([])
                 }
                 document.title = `${query} - YouTubeClone`
-                const filteredVideos = videos.filter(v => v.title.includes(query) || v.channel.includes(query) )
+                const filteredVideos = videos.filter(v => 
+                    v.title.toLowerCase().includes(query) || 
+                    v.channel.toLowerCase().includes(query) 
+                )
                 renderHorizontalVideoCards(filteredVideos)
             }
         })
