@@ -17,6 +17,29 @@ export function initNavbar(onToggleSidebar) {
                 if(searchInput === '') return
                 window.location.href = `../html/search.html?search_query=${encodeURIComponent(searchInput)}`
             })
+
+            document.getElementById('searchInput').addEventListener('input', () => {
+                const searchInput = document.getElementById('searchInput')
+                const removeButton = document.getElementById('clearSearchInput')
+                if(searchInput.value.length > 0) {
+                    removeButton.classList.remove('d-none')
+                    removeButton.classList.add('d-flex')
+                } else {
+                    removeButton.classList.remove('d-flex')
+                    removeButton.classList.add('d-none')
+                }
+                sessionStorage.setItem('searchQuery', searchInput.value)
+            })
+
+            document.getElementById('clearSearchInput').addEventListener('click', () => {
+                document.getElementById('searchInput').value = ''
+                document.getElementById('searchInput').dispatchEvent(new Event('input'))
+            })
+
+            if(sessionStorage.getItem('searchQuery') != null) { 
+                document.getElementById('searchInput').value = sessionStorage.getItem('searchQuery')
+                document.getElementById('searchInput').dispatchEvent(new Event('input'))
+            }
         })
     
     

@@ -14,9 +14,10 @@
             <form class="d-flex align-items-center position-relative w-100 d-none d-md-inline-flex" role="search" style="max-width: 600px;"
                 onsubmit="" id="searchForm">
                 <!-- input -->
-                <input class="form-control border-secondary rounded-start-pill d-none d-md-block" type="text"
-                        placeholder="검색" name="query" id="searchInput">
-
+                <div class="w-100 position-relative d-md-inline-flex">
+                    <input class="form-control border-secondary rounded-start-pill d-none d-md-block" type="text" placeholder="검색" name="query" id="searchInput" style="padding-right: 30px;">
+                    <div id="clearSearchInput" role="button" class="position-absolute end-0 m-2 pe-1 d-none" style="z-index: 10;"><i class="bi bi-x-lg"></i></div>
+                </div>
                 <!-- search button -->
                 <button id="searchButton" class="btn border-secondary rounded-end-pill px-4 border-start-0 d-none d-md-inline-flex" type="submit">
                     <i class="bi bi-search"></i>
