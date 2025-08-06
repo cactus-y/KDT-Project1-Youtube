@@ -87,7 +87,7 @@ export function getHorizontalVideoCardHTML(video, mode) {
             videoDetail = `
                 <img src="${video.thumbnail}" alt="Video Thumbnail" class="rounded me-2 flex-shrink-0" width="168px" height="92px">
                 <div class="video-text-group">
-                    <span class="video-title text-truncate-2-lines slightly-bold small-span">${video.title}</span>
+                    <span class="video-title text-truncate-2-lines slightly-bold small-span" style="width: 192px;">${video.title}</span>
                     <span class="text-muted text-truncate-1-lines" style="font-size: 12px;">${video.channel}</span><br>
                     <span class="text-muted text-truncate-1-lines" style="font-size: 12px;">조회수 ${viewToString(video.views)} · ${dateToString(video.uploadedDate)}</span>
                 </div>
@@ -111,8 +111,8 @@ export function getHorizontalVideoCardHTML(video, mode) {
                 <div role="button" onclick="window.location.href='./video.html?videoId=${video.id}'" class="text-decoration-none text-black">
                     <div class="d-flex">
                         ${videoDetail}
-                        <div class="position-relative" onclick="event.stopPropagation();">
-                            <button id="recommendedVideoDropdownButton" class="btn btn-hover-gray rounded-circle p-0 top-0 end-0 px-1" type="button"><i class="bi bi-three-dots-vertical"></i></button>
+                        <div class="position-relative ms-4" onclick="event.stopPropagation();">
+                            <button id="recommendedVideoDropdownButton" class="btn btn-hover-gray rounded-circle position-absolute p-0 top-0 end-0 px-1" type="button"><i class="bi bi-three-dots-vertical"></i></button>
                         </div>
                     </div>
                 </div>
